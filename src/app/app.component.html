@@ -4,8 +4,9 @@
     <!-- Left elements -->
     <div class="d-flex">
       <!-- Brand -->
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-        <img src="images/chorus logo.png" height="20" alt="" loading="lazy" style="margin-top: 2px;" />
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="">
+        <!--TODO REVOIR LE LOGO ET LE LIEN VERS HOME-->
+        <img src="" height="20" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
       <!-- Search form -->
@@ -37,7 +38,7 @@
         </a>
       </li>
 
-    
+
 
       <li class="nav-item me-3 me-lg-1">
         <a class="nav-link" routerLink="boutique">
@@ -57,60 +58,83 @@
 
     <!-- Right elements -->
     <ul class="navbar-nav flex-row">
-      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" routerLink="user">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22" alt=""
-            loading="lazy" />
-          <strong class="d-none d-sm-block ms-1">Lucie</strong>
-        </a>
-      </li>
 
-      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link" href="#">
-          <span><i class="fas fa-plus-circle fa-lg"></i></span>
-        </a>
-      </li>
-      <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link dropdown-toggle " routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
-          mdbDropdownToggle aria-expanded="false">
-          <i class="fas fa-comments fa-lg"></i>
+      <!-- If not connected-->
 
-          <span class="badge rounded-pill badge-notification bg-danger">6</span>
-        </a>
-        <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </li>
-      <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-        <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-          mdbDropdownToggle aria-expanded="false">
-          <i class="fas fa-bell fa-lg"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">12</span>
-        </a>
-        <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </li>
-      
+      <div class="d-flex" *ngIf="!isConnected()">
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link d-sm-flex align-items-sm-center" routerLink="login">
+            <i class="far fa-user"></i>
+          </a>
+        </li>
+      </div>
+
+      <!-- If connected  -->
+      <div class="d-flex" *ngIf="isConnected()">
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22"
+              alt="" loading="lazy" />
+            <strong class="d-none d-sm-block ms-1">NADEGE</strong>
+          </a>
+        </li>
+
+
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link" href="#">
+            <span><i class="fas fa-plus-circle fa-lg"></i></span>
+          </a>
+        </li>
+        <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
+          <a class="nav-link dropdown-toggle " routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
+            mdbDropdownToggle aria-expanded="false">
+            <i class="fas fa-comments fa-lg"></i>
+
+            <span class="badge rounded-pill badge-notification bg-danger">6</span>
+          </a>
+          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
+            data-bs-toggle="dropdown">
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+        <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
+          <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            mdbDropdownToggle aria-expanded="false">
+            <i class="fas fa-bell fa-lg"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">12</span>
+          </a>
+          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a (click)="deco()" class="nav-link"><i class="fas fa-power-off"></i></a>
+        </li>
+      </div>
+
     </ul>
     <!-- Right elements -->
   </div>
 </nav>
 <!-- Navbar -->
+
+
+
 <router-outlet></router-outlet>
