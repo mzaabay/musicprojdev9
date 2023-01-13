@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
   styleUrls: ['./panier.component.css']
 })
-export class PanierComponent {
+export class PanierComponent implements OnInit {
+  panier: any;
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http.get('http://localhost:8289/panier').subscribe({
+      next: (data) => { this.panier = data },
+      error: (err) => { console.log(err) }
+    });
+    
+  }
+
+
+
 
 }
