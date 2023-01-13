@@ -6,6 +6,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { MessageComponent } from './message/message.component';
 import { PanierComponent } from './panier/panier.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { component: ConnexionComponent, path: 'login' },
@@ -13,8 +14,8 @@ const routes: Routes = [
   { component: BoutiqueComponent, path: 'boutique' },
   { component: PanierComponent, path: 'login/panier' },
   { component: MessageComponent, path: 'login/messages' },
-  { component: PlaylistsComponent, path: 'playlists' }
-
+  { component: PlaylistsComponent, path: 'playlists' },
+  { component: UserComponent, path: 'user' }
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { PanierComponent } from './panier/panier.component';
+import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     BoutiqueComponent,
     PlaylistsComponent,
     PanierComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
