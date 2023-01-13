@@ -11,6 +11,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { PanierComponent } from './panier/panier.component';
+import { UserComponent } from './user/user.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     BoutiqueComponent,
     PlaylistsComponent,
     PanierComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
