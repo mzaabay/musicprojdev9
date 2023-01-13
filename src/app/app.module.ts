@@ -9,6 +9,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { PanierComponent } from './panier/panier.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PanierComponent } from './panier/panier.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

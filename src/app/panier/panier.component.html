@@ -1,1 +1,23 @@
-<p>panier works!</p>
+<h1>Panier Works !</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let m of panier">
+            <div class="card p-2">
+                <p>{{ m.quantite }}</p>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr><th>Article</th><th>Prix</th><th>Quantité</th></tr>
+    </thead>
+    <tbody id="cart-tablebody"></tbody>
+</table>
+
+<p>Sous total : <span class="subtotal"></span>€</p>
+
+<button id="confirm-command">Passer la commande</button>
