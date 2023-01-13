@@ -18,7 +18,7 @@ import { PanierComponent } from './panier/panier.component';
     EvenementsComponent,
     BoutiqueComponent,
     PlaylistsComponent,
-    PanierComponent
+    PanierComponent,
   ],
   imports: [
     BrowserModule,
