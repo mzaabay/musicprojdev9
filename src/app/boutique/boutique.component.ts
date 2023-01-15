@@ -13,7 +13,11 @@ export class BoutiqueComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('http://localhost:8289/produits/all');
-  }
+    this.http.get('http://localhost:8289/produits/all').subscribe({
+      next: (data) => { this.products = data },
+      error: (err) => { console.log(err) }
 
+    });
+
+  }
 }
