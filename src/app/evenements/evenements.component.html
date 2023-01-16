@@ -52,17 +52,15 @@
     <p></p>
 
     <div class="container">
-        <div>
-            <form _ngcontent-ess-c57="" novalidate=""
-                class="input-group w-auto my-auto d-none d-sm-flex ng-untouched ng-pristine ng-valid"><input
-                    _ngcontent-ess-c57="" autocomplete="off" type="search" placeholder="Chercher..."
-                    class="form-control rounded" style="min-width: 125px;"><span _ngcontent-ess-c57=""
-                    class="input-group-text border-0 d-none d-lg-flex"> <i _ngcontent-ess-c57=""
-                        class="fas fa-search"></i></span></form>
+        <div class="row">
+            <div class="serach-hero">
+                <input class="form-control rounded" [(ngModel)]="searchText" name="search" autocomplete="off"
+                    type="text" placeholder="Chercher..." style="min-width: 125px;">
+            </div>
         </div>
         <p></p>
         <div class="row">
-            <div class="col-3" *ngFor="let m of events">
+            <div class="col-3" *ngFor="let m of events | filter:searchText">
                 <div class="card card-cascade narrower">
                     <!-- Card image -->
                     <div class="view view-cascade overlay">
@@ -85,7 +83,7 @@
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
                         <p class="card-text">{{m.prix}} euros</p>
-                        <a class="btn btn-unique">Button</a>
+                        <a class="btn btn-unique">Plus d'infos</a>
 
                     </div>
 

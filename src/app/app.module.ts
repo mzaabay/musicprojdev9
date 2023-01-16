@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
@@ -46,6 +47,7 @@ import { ProfilComponent } from './profil/profil.component';
       { path: 'home', component: HomeComponent },
     ])
     ,
+    Ng2SearchPipeModule
 
   ],
   providers: [],

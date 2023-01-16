@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EvenementsComponent implements OnInit {
   events: any;
-  event1: any;
+  research: any;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -18,13 +18,10 @@ export class EvenementsComponent implements OnInit {
       error: (err) => { console.log(err) }
 
     });
-    this.http.get('http://localhost:8289/evenement/9').subscribe({
-      next: (data) => { this.event1 = data },
-      error: (err) => { console.log(err) }
-
-    });
 
   }
+
+  searchText: any;
 
 
 }
