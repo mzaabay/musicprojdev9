@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { ProfilComponent } from './profil/profil.component';
+import { MdpComponent } from './mdp/mdp.component';
 
 
 
@@ -35,7 +36,7 @@ import { ProfilComponent } from './profil/profil.component';
     HomeComponent,
     RegisterComponent,
     ProfilComponent,
-
+    MdpComponent
   ],
   imports: [
     BrowserModule,
