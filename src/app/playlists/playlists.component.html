@@ -1,4 +1,16 @@
-<p>playlists works!</p>
+<div class="container">
+
+    <div class="row" style="color: black;">
+
+        <div class="col-sm-3" *ngFor="let item of playlist">
+            <td>test</td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nom }}</td>
+        </div>
+
+    </div>
+
+</div>
 <div id="accordion">
     <div style="margin: auto; width: 40%">
 
@@ -15,10 +27,19 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    Titre : {{playlist[0].morceau1.nom}}
-                    Album : {{playlist[0].morceau1.album}}
-                    Genre : {{playlist[0].morceau1.genre}}
-                    Auteur : {{playlist[0].morceau1.auteur}}
+                    <div class="row">
+                        <div class="col-9">
+                            <br>
+                            Titre : {{playlist[0].morceau1.nom}}
+                            Album : {{playlist[0].morceau1.album}}
+                            Genre : {{playlist[0].morceau1.genre}}
+                            Auteur : {{playlist[0].morceau1.auteur}}
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-outline-dark"
+                                data-mdb-ripple-color="dark">Delete</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     Titre : {{playlist[0].morceau2.nom}}
@@ -87,66 +108,7 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau1.nom}}
-                        Album : {{playlist[1].morceau1.album}}
-                        Genre : {{playlist[1].morceau1.genre}}
-                        Auteur : {{playlist[1].morceau1.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau2.nom}}
-                        Album : {{playlist[1].morceau2.album}}
-                        Genre : {{playlist[1].morceau2.genre}}
-                        Auteur : {{playlist[1].morceau2.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau3.nom}}
-                        Album : {{playlist[1].morceau3.album}}
-                        Genre : {{playlist[1].morceau3.genre}}
-                        Auteur : {{playlist[1].morceau3.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau4.nom}}
-                        Album : {{playlist[1].morceau4.album}}
-                        Genre : {{playlist[1].morceau4.genre}}
-                        Auteur : {{playlist[1].morceau4.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau5.nom}}
-                        Album : {{playlist[1].morceau5.album}}
-                        Genre : {{playlist[1].morceau5.genre}}
-                        Auteur : {{playlist[1].morceau5.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau6.nom}}
-                        Album : {{playlist[1].morceau6.album}}
-                        Genre : {{playlist[1].morceau6.genre}}
-                        Auteur : {{playlist[1].morceau6.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau7.nom}}
-                        Album : {{playlist[1].morceau7.album}}
-                        Genre : {{playlist[1].morceau7.genre}}
-                        Auteur : {{playlist[1].morceau7.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau8.nom}}
-                        Album : {{playlist[1].morceau8.album}}
-                        Genre : {{playlist[1].morceau8.genre}}
-                        Auteur : {{playlist[1].morceau8.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau9.nom}}
-                        Album : {{playlist[1].morceau9.album}}
-                        Genre : {{playlist[1].morceau9.genre}}
-                        Auteur : {{playlist[1].morceau9.auteur}}
-                    </div>
-                    <div class="card-body">
-                        Titre : {{playlist[1].morceau10.nom}}
-                        Album : {{playlist[1].morceau10.album}}
-                        Genre : {{playlist[1].morceau10.genre}}
-                        Auteur : {{playlist[1].morceau10.auteur}}
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -227,19 +189,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Explanation -->
-    <div class="container mt-4 text-center" style="height: 2000px">
-        <p>
-            Start scrolling the page and a red
-            <strong>"Back to top" button </strong> will appear in the
-            <strong>bottom right corner</strong> of the screen.
-        </p>
-
-        <p>Click this button and you will be taken to the top of the page.</p>
     </div>
 </div>
