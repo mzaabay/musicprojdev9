@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpClient, private route: Router) { }
 
-
+  register(value: any) {
+    this.http.post('')
+  }
 
 }
