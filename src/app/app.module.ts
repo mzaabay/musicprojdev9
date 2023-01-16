@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -32,6 +33,7 @@ import { RegisterComponent } from './register/register.component';
     UserComponent,
     HomeComponent,
     RegisterComponent,
+    ProfilComponent,
 
   ],
   imports: [

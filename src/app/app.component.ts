@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   user: any;
 
-  constructor(private route: Router) {}
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  
+
 
   isConnected() {
     let u: any = sessionStorage.getItem('userConnected');
@@ -30,6 +30,14 @@ export class AppComponent implements OnInit {
   deco() {
     sessionStorage.clear();
     this.route.navigateByUrl('login');
+  }
+
+  getName() {
+    let u: any = sessionStorage.getItem('userConnected');
+    this.user = JSON.parse(u);
+    return (this.user.login);
+
+
   }
 
 }
