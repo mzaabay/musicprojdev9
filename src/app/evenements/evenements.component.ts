@@ -9,14 +9,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EvenementsComponent implements OnInit {
   events: any;
+  event1: any;
   constructor(private http: HttpClient) { }
+
   ngOnInit(): void {
     this.http.get('http://localhost:8289/evenement/all').subscribe({
       next: (data) => { this.events = data },
       error: (err) => { console.log(err) }
 
     });
+    this.http.get('http://localhost:8289/evenement/9').subscribe({
+      next: (data) => { this.event1 = data },
+      error: (err) => { console.log(err) }
+
+    });
+
   }
 
 
 }
+
+
+
+
+
+
+
+
+
