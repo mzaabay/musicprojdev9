@@ -61,7 +61,7 @@
 
       <!-- If not connected-->
 
-      <div class="d-flex" *ngIf="!isConnected()">
+      <div class="d-flex" *ngIf="!service.isConnected()">
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center" routerLink="login">
             <i class="far fa-user"></i>
@@ -70,18 +70,18 @@
       </div>
 
       <!-- If connected  -->
-      <div class="d-flex" *ngIf="isConnected()">
+      <div class="d-flex" *ngIf="service.isConnected()">
         <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center" routerLink="profil">
+          <a class="nav-link d-sm-flex align-items-sm-center" routerLink="user">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22"
               alt="" loading="lazy" />
-            <strong class="d-none d-sm-block ms-1">{{ getName() }}</strong>
+            <strong class="d-none d-sm-block ms-1">{{ service.getLogin() }}</strong>
           </a>
         </li>
 
 
         <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link" href="#">
+          <a class="nav-link" routerLink="">
             <span><i class="fas fa-plus-circle fa-lg"></i></span>
           </a>
         </li>
@@ -125,7 +125,7 @@
         </li>
 
         <li class="nav-item">
-          <a (click)="deco()" class="nav-link"><i class="fas fa-power-off"></i></a>
+          <a (click)="service.deco()" class="nav-link"><i class="fas fa-power-off"></i></a>
         </li>
       </div>
 
