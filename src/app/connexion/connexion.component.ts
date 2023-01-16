@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   user: any;
@@ -23,7 +23,7 @@ export class ConnexionComponent implements OnInit {
         this.user = data;
         if (this.user != null) {
           sessionStorage.setItem('userConnected', JSON.stringify(this.user));
-          this.route.navigateByUrl('boutique');
+          this.route.navigateByUrl('home');
         } else {
           this.msg = 'identifiant ou mdp inccorect';
         }

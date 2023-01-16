@@ -11,13 +11,26 @@ export class RegisterComponent implements OnInit {
   user: any;
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   constructor(private http: HttpClient, private route: Router) { }
 
   register(value: any) {
+    console.log(value)
+    this.http.post('http://localhost:8289/user', value).subscribe({
+      next: (data) => {
+        this.user = data;
+        console.log(data)
+        if (this.user != null) {
+          this.route.navigateByUrl('login');
+        }
+        else {
 
+
+        }
+      }
+    })
   }
 
 }

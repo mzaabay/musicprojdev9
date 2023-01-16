@@ -18,40 +18,41 @@
             <div class="card-body px-lg-5 pt-0">
 
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;">
+                <form #fRegister="ngForm" (ngSubmit)="register(fRegister.value)" class="text-center"
+                    style="color: #757575;">
 
                     <div class="form-row">
                         <div class="col">
                             <!-- First name -->
                             <div class="md-form">
-                                <input type="text" id="Prénom" class="form-control">
-                                <label for="Prénom">Prénom</label>
+                                <input ngModel="" type="text" name="prenom" class="form-control">
+                                <label for="prenom">Prénom</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- Last name -->
                             <div class="md-form">
-                                <input type="text" id="Nom" class="form-control">
-                                <label for="Nom">Nom</label>
+                                <input ngModel="" type="text" name="nom" class="form-control">
+                                <label for="nom">Nom</label>
                             </div>
                         </div>
                     </div>
 
                     <!-- E-mail -->
                     <div class="md-form mt-0">
-                        <input type="email" id="Mail" class="form-control">
-                        <label for="Mail" class="active">E-mail</label>
+                        <input ngModel="" type="email" name="mail" class="form-control">
+                        <label for="mail" class="active">E-mail</label>
                     </div>
 
                     <div class="md-form">
-                        <input type="text" id="Login" class="form-control">
-                        <label for="Login">Login</label>
+                        <input ngModel="" type="text" name="login" class="form-control">
+                        <label for="login">Login</label>
                     </div>
 
                     <!-- Password -->
                     <div class="md-form">
-                        <input type="password" id="mdp" class="form-control">
-                        <label for="mdp" class="active">Mot de passe</label>
+                        <input ngModel="" type="password" name="password" class="form-control">
+                        <label for="password" class="active">Mot de passe</label>
 
                     </div>
 
