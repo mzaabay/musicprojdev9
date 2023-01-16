@@ -34,7 +34,8 @@ import { MdpComponent } from './mdp/mdp.component';
     UserComponent,
     HomeComponent,
     RegisterComponent,
-
+    ProfilComponent,
+    MdpComponent
   ],
   imports: [
     BrowserModule,
