@@ -72,10 +72,10 @@
       <!-- If connected  -->
       <div class="d-flex" *ngIf="isConnected()">
         <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+          <a class="nav-link d-sm-flex align-items-sm-center" routerLink="profil">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22"
               alt="" loading="lazy" />
-            <strong class="d-none d-sm-block ms-1">NADEGE</strong>
+            <strong class="d-none d-sm-block ms-1">{{ getName() }}</strong>
           </a>
         </li>
 
@@ -92,7 +92,7 @@
 
             <span class="badge rounded-pill badge-notification bg-danger">6</span>
           </a>
-          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
             data-bs-toggle="dropdown">
             <li>
               <a class="dropdown-item" href="#">Some news</a>
