@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
   constructor(private http: HttpClient, private route: Router) { }
 

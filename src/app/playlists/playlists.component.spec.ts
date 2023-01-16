@@ -8,9 +8,9 @@ describe('PlaylistsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaylistsComponent ]
+      declarations: [PlaylistsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PlaylistsComponent);
     component = fixture.componentInstance;

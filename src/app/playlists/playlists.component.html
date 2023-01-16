@@ -1,1 +1,92 @@
 <p>playlists works!</p>
+<div class="card h-100">
+
+
+</div>
+<div id="accordion">
+    <div style="margin: auto; width: 40%">
+
+
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Playlist :
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    Titre : {{playlist[0].morceau1.nom}}
+                    Album : {{playlist[0].morceau1.album}}
+                    Genre : {{playlist[0].morceau1.genre}}
+                    Auteur : {{playlist[0].morceau1.auteur}}
+                </div>
+                <div class="card-body">
+                    Titre : {{playlist[0].morceau2.nom}}
+                    Album : {{playlist[0].morceau2.album}}
+                    Genre : {{playlist[0].morceau2.genre}}
+                    Auteur : {{playlist[0].morceau2.auteur}}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Playlist :
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    Playlist :
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Playlist :
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    Playlist :
+                </div>
+            </div>
+            <div class="card-header" id="headingFor">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFor"
+                        aria-expanded="false" aria-controls="collapseFor">
+                        Playlist :
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordion">
+                <div class="card-body">
+                    Playlist :
+                </div>
+            </div>
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                        aria-expanded="false" aria-controls="collapseFive">
+                        Playlist :
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFiveng serve" data-parent="#accordion">
+                <div class="card-body">
+                    Playlist :
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

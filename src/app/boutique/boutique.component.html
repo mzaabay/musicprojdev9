@@ -21,6 +21,7 @@
 
 <div class="container">
     <div class="row m-2 row-cols-1 row-cols-md-4 g-4 ">
+
         <div class="col" *ngFor="let m of products">
             <div class="card h-100">
                 <img src="https://img.freepik.com/photos-gratuite/appareil-numerique-sans-fil-casque-rose_53876-96804.jpg?w=740&t=st=1673805007~exp=1673805607~hmac=b96d774c41761b16f359e6320d10a1c99ff34459bf8e71ec9ce1f43ab75d8fd7"
@@ -33,14 +34,28 @@
                     <p>
                         Prix : {{ m.prix}} $
                     </p>
+                    <div>
 
+                    </div>
                     <div class="text-center">
-                        <button type="button" class="btn btn-dark btn-sm ">Ajouter au panier</button>
+                        <label for="quantity">Quantité :</label>
+                        <select #quantity id="quantity" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+                        <button (click)="ajoutProduit(m.id, quantity.value)" class="btn btn-dark btn-sm ">Ajouter au
+                            panier</button>
+
                     </div>
 
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card h-100">
                 <img src="https://img.freepik.com/photos-gratuite/disque-vinyle-assortiment-textures-retro_23-2149076018.jpg?w=740&t=st=1673808138~exp=1673808738~hmac=4b214ae814edfe246d653c2d1987682085b9cc1645988775fa513204ece50b9e"

@@ -6,7 +6,7 @@
       <!-- Brand -->
       <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="">
         <!--TODO REVOIR LE LOGO ET LE LIEN VERS HOME-->
-        <img src="" height="20" alt="" loading="lazy" style="margin-top: 2px;" />
+        <img src="./assets/images/chorus logo.png" height="40" alt="" loading="lazy" style="margin-top: 2px;" />
       </a>
 
       <!-- Search form -->
@@ -72,10 +72,10 @@
       <!-- If connected  -->
       <div class="d-flex" *ngIf="isConnected()">
         <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+          <a class="nav-link d-sm-flex align-items-sm-center" routerLink="profil">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22"
               alt="" loading="lazy" />
-            <strong class="d-none d-sm-block ms-1">NADEGE</strong>
+            <strong class="d-none d-sm-block ms-1">{{ getName() }}</strong>
           </a>
         </li>
 
@@ -92,7 +92,7 @@
 
             <span class="badge rounded-pill badge-notification bg-danger">6</span>
           </a>
-          <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
             data-bs-toggle="dropdown">
             <li>
               <a class="dropdown-item" href="#">Some news</a>
