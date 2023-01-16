@@ -8,6 +8,7 @@ import { PanierComponent } from './panier/panier.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { component: ConnexionComponent, path: 'login' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { component: MessageComponent, path: 'login/messages' },
   { component: PlaylistsComponent, path: 'playlists' },
   { component: UserComponent, path: 'user' },
-  { component: HomeComponent, path: 'home' }
+  { component: HomeComponent, path: 'home' },
+  { component: RegisterComponent, path: 'register' }
 
 ];
 
