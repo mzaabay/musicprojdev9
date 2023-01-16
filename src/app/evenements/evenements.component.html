@@ -8,42 +8,33 @@
         </ol>
         <!--/.Indicators-->
         <!--Slides-->
+
         <div class="carousel-inner" role="listbox">
+
             <div class="carousel-item active">
                 <div class="view">
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).webp"
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).webp"
                         alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
-                    <h3 class="h3-responsive">Light mask</h3>
-                    <p>First text</p>
+                    <h3 class="h3-responsive">Nom</h3>
+                    <p>Resume</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <!--Mask color-->
+            <div class="carousel-item" *ngFor="let m of events">
                 <div class="view">
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).webp"
-                        alt="Second slide">
-                    <div class="mask rgba-black-strong"></div>
+                    <img class="d-block w-100"
+                        src="https://img.freepik.com/photos-gratuite/concept-ecouteurs-heureux-vie-musicale_53876-120395.jpg?w=1380&t=st=1673864688~exp=1673865288~hmac=010f43c179924fe15ced622c17d07fceee34ab213bb2f55902d0a04cca39f919"
+                        alt="First slide">
+                    <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
-                    <h3 class="h3-responsive">Strong mask</h3>
-                    <p>Secondary text</p>
+                    <h3 class="h3-responsive">{{m.nom}}</h3>
+                    <p>{{m.resume}}</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).webp"
-                        alt="Third slide">
-                    <div class="mask rgba-black-slight"></div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Slight mask</h3>
-                    <p>Third text</p>
-                </div>
-            </div>
+            <!-- -->
         </div>
         <!--/.Slides-->
         <!--Controls-->
@@ -61,82 +52,39 @@
     <div class="container">
 
 
-        <div class="card-deck">
-            <div class="card card-cascade narrower">
-                <!-- Card image -->
-                <div class="view view-cascade overlay">
-                    <img class="card-img-top"
-                        src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).webp"
-                        alt="Card image cap">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <!-- Card content -->
-                <div class="card-body">
+        <div class="row">
+            <div class="col-3" *ngFor="let m of events">
+                <div class="card card-cascade narrower">
+                    <!-- Card image -->
+                    <div class="view view-cascade overlay">
+                        <img class="card-img-top"
+                            src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).webp"
+                            alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
 
-                    <!-- Label -->
-                    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> Nom event</h5>
-                    <!-- Title -->
-                    <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                    <!-- Text -->
-                    <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                        laboriosam, nisi ut aliquid ex ea commodi.</p>
-                    <!-- Button -->
-                    <a class="btn btn-unique">Button</a>
+                    <!-- Card content -->
+                    <div class="card-body">
 
-                </div>
-            </div>
-            <div class="card card-cascade narrower">
-                <!-- Card image -->
-                <div class="view view-cascade overlay">
-                    <img class="card-img-top"
-                        src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).webp"
-                        alt="Card image cap">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <!-- Card content -->
-                <div class="card-body">
+                        <!-- Label -->
+                        <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> {{m.date}}</h5>
+                        <!-- Title -->
+                        <h4 class="font-weight-bold card-title">{{m.nom}}</h4>
+                        <!-- Text -->
+                        <p class="card-text">{{m.resume}}</p>
+                        <!-- Button -->
+                        <p class="card-text">{{m.prix}} euros </p>
+                        <a class="btn btn-unique">Button</a>
 
-                    <!-- Label -->
-                    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> Nom event</h5>
-                    <!-- Title -->
-                    <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                    <!-- Text -->
-                    <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                        laboriosam, nisi ut aliquid ex ea commodi.</p>
-                    <!-- Button -->
-                    <a class="btn btn-unique">Button</a>
+                    </div>
 
                 </div>
             </div>
-            <div class="card card-cascade narrower">
-                <!-- Card image -->
-                <div class="view view-cascade overlay">
-                    <img class="card-img-top"
-                        src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).webp"
-                        alt="Card image cap">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <!-- Card content -->
-                <div class="card-body">
 
-                    <!-- Label -->
-                    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> Nom event</h5>
-                    <!-- Title -->
-                    <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                    <!-- Text -->
-                    <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                        laboriosam, nisi ut aliquid ex ea commodi.</p>
-                    <!-- Button -->
-                    <a class="btn btn-unique">Button</a>
 
-                </div>
-            </div>
+
         </div>
 
 

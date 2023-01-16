@@ -14,6 +14,10 @@ import { PanierComponent } from './panier/panier.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+
 
 
 @NgModule({
@@ -26,12 +30,19 @@ import { FormsModule } from '@angular/forms';
     PlaylistsComponent,
     PanierComponent,
     UserComponent,
+    HomeComponent,
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'home', component: HomeComponent },
+    ])
     ,
 
   ],
