@@ -12,21 +12,22 @@
         <div class="carousel-inner" role="listbox">
 
             <div class="carousel-item active">
-                <div class="view">
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).webp"
-                        alt="First slide">
-                    <div class="mask rgba-black-light"></div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Nom</h3>
-                    <p>Resume</p>
+                <div>
+                    <div class="view">
+                        <img class="d-block w-100"
+                            src="https://images.unsplash.com/photo-1433622070098-754fdf81c929?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                            alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Nom</h3>
+                        <p>Resume</p>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item" *ngFor="let m of events">
+            <div class="carousel-item" *ngFor="let m of events.slice(1)">
                 <div class="view">
-                    <img class="d-block w-100"
-                        src="https://img.freepik.com/photos-gratuite/concept-ecouteurs-heureux-vie-musicale_53876-120395.jpg?w=1380&t=st=1673864688~exp=1673865288~hmac=010f43c179924fe15ced622c17d07fceee34ab213bb2f55902d0a04cca39f919"
-                        alt="First slide">
+                    <img class="d-block w-100" src="{{m.image}}" alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -49,11 +50,17 @@
         <!--/.Controls-->
     </div>
     <p></p>
+
     <div class="container">
-
-
         <div class="row">
-            <div class="col-3" *ngFor="let m of events">
+            <div class="serach-hero">
+                <input class="form-control rounded" [(ngModel)]="searchText" name="search" autocomplete="off"
+                    type="text" placeholder="Chercher..." style="min-width: 125px;">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-3" *ngFor="let m of events | filter:searchText">
                 <div class="card card-cascade narrower">
                     <!-- Card image -->
                     <div class="view view-cascade overlay">
@@ -75,12 +82,13 @@
                         <!-- Text -->
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
-                        <p class="card-text">{{m.prix}} euros </p>
-                        <a class="btn btn-unique">Button</a>
+                        <p class="card-text">{{m.prix}} euros</p>
+                        <a class="btn btn-unique">Plus d'infos</a>
 
                     </div>
 
                 </div>
+                <p></p>
             </div>
 
 

@@ -35,20 +35,21 @@
                         Prix : {{ m.prix}} $
                     </p>
                     <div>
+
+                    </div>
+                    <div class="text-center">
                         <label for="quantity">Quantité :</label>
-                        <select id="quantity" name="quantity" #quantity>
+                        <select #quantity id="quantity" name="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </div>
-                    <div class="text-center">
-                        <form (ngSubmit)="ajoutProduit()">
-                            <button type="submit" class="btn btn-dark btn-sm ">Ajouter au
-                                panier</button>
-                        </form>
+
+                        <button (click)="ajoutProduit(m.id, quantity.value)" class="btn btn-dark btn-sm ">Ajouter au
+                            panier</button>
+
                     </div>
 
                 </div>
