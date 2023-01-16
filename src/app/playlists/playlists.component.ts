@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PlaylistsComponent implements OnInit {
 
   playlist: any;
+  nbMorceau: any;
   constructor(private http: HttpClient, private route: Router) { }
 
   ngOnInit(): void {
