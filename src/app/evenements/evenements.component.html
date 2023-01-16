@@ -13,21 +13,21 @@
 
             <div class="carousel-item active">
                 <div>
-                <div class="view">
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).webp"
-                        alt="First slide">
-                    <div class="mask rgba-black-light"></div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Nom</h3>
-                    <p>Resume</p>
+                    <div class="view">
+                        <img class="d-block w-100"
+                            src="https://images.unsplash.com/photo-1433622070098-754fdf81c929?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                            alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Nom</h3>
+                        <p>Resume</p>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item" *ngFor="let m of events">
+            <div class="carousel-item" *ngFor="let m of events.slice(1)">
                 <div class="view">
-                    <img class="d-block w-100"
-                        src="https://img.freepik.com/photos-gratuite/concept-ecouteurs-heureux-vie-musicale_53876-120395.jpg?w=1380&t=st=1673864688~exp=1673865288~hmac=010f43c179924fe15ced622c17d07fceee34ab213bb2f55902d0a04cca39f919"
-                        alt="First slide">
+                    <img class="d-block w-100" src="{{m.image}}" alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -50,9 +50,17 @@
         <!--/.Controls-->
     </div>
     <p></p>
+
     <div class="container">
-
-
+        <div>
+            <form _ngcontent-ess-c57="" novalidate=""
+                class="input-group w-auto my-auto d-none d-sm-flex ng-untouched ng-pristine ng-valid"><input
+                    _ngcontent-ess-c57="" autocomplete="off" type="search" placeholder="Chercher..."
+                    class="form-control rounded" style="min-width: 125px;"><span _ngcontent-ess-c57=""
+                    class="input-group-text border-0 d-none d-lg-flex"> <i _ngcontent-ess-c57=""
+                        class="fas fa-search"></i></span></form>
+        </div>
+        <p></p>
         <div class="row">
             <div class="col-3" *ngFor="let m of events">
                 <div class="card card-cascade narrower">
@@ -76,12 +84,13 @@
                         <!-- Text -->
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
-                        <p class="card-text">{{m.prix}} euros </p>
+                        <p class="card-text">{{m.prix}} euros</p>
                         <a class="btn btn-unique">Button</a>
 
                     </div>
 
                 </div>
+                <p></p>
             </div>
 
 
