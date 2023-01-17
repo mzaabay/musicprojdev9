@@ -15,19 +15,19 @@
                 <div>
                     <div class="view">
                         <img class="d-block w-100"
-                            src="https://images.unsplash.com/photo-1433622070098-754fdf81c929?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                            src="https://res.cloudinary.com/de1leytbf/image/upload/c_crop,g_north_east,h_297,w_612/v1673946926/samples/project/hip-hop-musicien_xhwa0i.jpg"
                             alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="h3-responsive">Nom</h3>
-                        <p>Resume</p>
+                        <h3 class="h3-responsive">RAP CONTENDERS</h3>
+                        <p>EVENEMENT RAP : Préparez vous !</p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item" *ngFor="let m of events.slice(1)">
                 <div class="view">
-                    <img class="d-block w-100" src="{{m.image}}" alt="First slide">
+                    <img class="d-block w-100" src="{{m.image_carousel}}" alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -64,9 +64,7 @@
                 <div class="card card-cascade narrower">
                     <!-- Card image -->
                     <div class="view view-cascade overlay">
-                        <img class="card-img-top"
-                            src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).webp"
-                            alt="Card image cap">
+                        <img class="card-img-top" src="{{m.image_mini}}" alt="Card image cap">
                         <a>
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -79,11 +77,12 @@
                         <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> {{m.date}}</h5>
                         <!-- Title -->
                         <h4 class="font-weight-bold card-title">{{m.nom}}</h4>
+                        <h6 class="font-weight-bold card-title">{{m.horaire}}</h6>
                         <!-- Text -->
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
-                        <p class="card-text">{{m.prix}} euros</p>
-                        <a class="btn btn-unique">Plus d'infos</a>
+                        <h6 class="font-weight-bold card-title">{{m.prix}}€ TTC</h6>
+                        <a class="btn btn-unique">Ajouter au panier</a>
 
                     </div>
 

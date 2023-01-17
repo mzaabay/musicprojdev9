@@ -30,16 +30,17 @@ export class BoutiqueComponent implements OnInit {
   }
 
   produit: any;
-
-  items = [
-    { name: 'selecteur1', quantity: 1 },
-    { name: 'selecteur2', quantity: 2 },
-    { name: 'selecteur3', quantity: 3 },
-  ];
+  msg: any;
+  commande: any;
 
 
 
-  ajoutProduit(id_produit: any, quantite: any) {
+
+
+
+
+
+  ajoutProduitAuPanier(id_produit: any, quantite: any) {
     this.http.put('http://localhost:8289/panier/999', {
       "id": 999,
       "quantite": quantite,
@@ -54,10 +55,15 @@ export class BoutiqueComponent implements OnInit {
     }).subscribe({
       next: (data) => {
         this.produit = data;
+        this.msg = 'Produit ajouté au panier';
+
+
 
 
       },
       error: (err) => { console.log(err) }
+
+
 
 
 

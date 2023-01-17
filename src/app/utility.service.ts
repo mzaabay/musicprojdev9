@@ -47,7 +47,7 @@ export class UtilityService {
   getcode_postale() {
     let u: any = sessionStorage.getItem('userConnected');
     this.user = JSON.parse(u);
-    return (this.user.code_postale);
+    return (this.user.code_Postale);
   }
   getAdresse() {
     let u: any = sessionStorage.getItem('userConnected');
@@ -58,9 +58,14 @@ export class UtilityService {
   getId() {
     let u: any = sessionStorage.getItem('userConnected');
     this.user = JSON.parse(u);
-    return (this.user.Id);
+    return (this.user.id);
   }
 
+  getPassword() {
+    let u: any = sessionStorage.getItem('userConnected');
+    this.user = JSON.parse(u);
+    return (this.user.password);
+  }
 
 
 }
