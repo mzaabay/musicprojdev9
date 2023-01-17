@@ -42,17 +42,25 @@ export class UserComponent {
 
   update(value: any) {
     console.log(value)
-    this.http.patch('http://localhost:8289/user/', value).subscribe({
+    this.http.patch('http://localhost:8289/user/' + this.service.getId(), value).subscribe({
       next: (data) => {
         this.user = data;
-        console.log(data)
         if (this.user != null) {
-          this.route.navigateByUrl('home');
+          this.message = "Changements pris en compte";
         }
         else {
+          this.message = 'Erreur dans lupdate';
         }
       }
     })
+  }
+
+  deleteUser() {
+    console.log(this.service.getId());
+
+    this.http.delete('http://localhost:8289/user/delete/' + this.service.getId()).subscribe({});
+    this.service.deco();
+    this.route.navigateByUrl('home');
   }
 
 

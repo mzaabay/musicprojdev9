@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
 
 
@@ -14,7 +15,9 @@ export class BoutiqueComponent implements OnInit {
 
 
   products: any;
-  constructor(private http: HttpClient, public service: UtilityService) { }
+  constructor(private http: HttpClient, private route: Router, public service: UtilityService) {
+
+  }
 
 
   ngOnInit(): void {
@@ -120,5 +123,6 @@ export class BoutiqueComponent implements OnInit {
 
   }
 
-
+  // pour la barre de recherche -->
+  searchText: any;
 }
