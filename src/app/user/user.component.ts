@@ -55,5 +55,13 @@ export class UserComponent {
     })
   }
 
+  deleteUser() {
+    console.log(this.service.getId());
+
+    this.http.delete('http://localhost:8289/user/delete/' + this.service.getId()).subscribe({});
+    this.service.deco();
+    this.route.navigateByUrl('home');
+  }
+
 
 }
