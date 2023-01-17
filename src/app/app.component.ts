@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
 
 
-
+  // pour la barre de recherche -->
+  searchText: any;
 
 }
