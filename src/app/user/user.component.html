@@ -13,16 +13,13 @@
                         <img src={{url}} alt="user-avatar" class="d-block rounded" height="100" width="100"
                             id="uploadedAvatar">
                         <div class="button-wrapper">
-                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <label for="upload" class="btn btn-primary me-1 mb-2" tabindex="0">
                                 <span class="d-none d-sm-block">Téléchargez une image</span>
                                 <i class="bx bx-upload d-block d-sm-none"></i>
                                 <input type="file" id="upload" class="account-file-input" hidden=""
                                     accept="images/png, images/jpeg" (change)="onFileChanged($event)">
                             </label>
-                            <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                <i class="bx bx-reset d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Réinitialiser</span>
-                            </button>
+
 
                             <p class="text-muted mb-0">JPG, GIF ou PNG autorisés. Taille maximale de 800K</p>
                         </div>
@@ -30,36 +27,53 @@
                 </div>
                 <hr class="my-0">
                 <div class="card-body">
-                    <form #Update="ngForm" (ngSubmit)="Update" id="formAccountSettings">
+                    <form #fUpdate="ngForm" (ngSubmit)="update(fUpdate.value)" id="formAccountSettings">
                         <div class="row">
+
+                            <div class="mb-3 col-md-6">
+                                <label for="Login" class="form-label">Login</label>
+                                <input ngModel="" type="text" class="form-control" id="login" name="login"
+                                    placeholder="*Obligatoire">
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input ngModel="" type="text" class="form-control" id="password" name="password"
+                                    placeholder="*Obligatoire" maxlength="6">
+                            </div>
+
+
                             <div class="mb-3 col-md-6">
                                 <label for="firstName" class="form-label">Prénom</label>
                                 <input ngModel="" class="form-control" type="text" id="firstName" name="prenom"
-                                    value="{{service.getPrenom()}}" autofocus="">
+                                    placeholder="*Obligatoire" autofocus="">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="lastName" class="form-label">Nom</label>
-                                <input ngModel="" class="form-control" type="text" name="nom" id="lastName"
-                                    value="{{service.getNom()}}">
+                                <input required ngModel="" class="form-control" type="text" name="nom" id="lastName"
+                                    placeholder="*Obligatoire">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="email" class="form-label">E-mail</label>
-                                <input ngModel="" class="form-control" type="text" id="email" name="mail"
-                                    value="{{service.getMail()}}" placeholder="">
+                                <input ngModel="" class="form-control" type="text" id="email" name="mail" value=""
+                                    placeholder="*Obligatoire">
                             </div>
 
 
                             <div class="mb-3 col-md-6">
                                 <label for="address" class="form-label">Adresse</label>
                                 <input ngModel="" type="text" class="form-control" id="adresse" name="adresse"
-                                    placeholder=" " value="{{service.getAdresse()}}">
+                                    placeholder="*Obligatoire">
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <label for="zipCode" class="form-label">Code Postale</label>
                                 <input ngModel="" type="text" class="form-control" id="zipCode" name="codePostale"
-                                    placeholder=" " value="{{service.getcode_postale()}}" maxlength="6">
+                                    placeholder="*Obligatoire" maxlength="6">
                             </div>
+
+                            <br>
+
 
                         </div>
                         <div class="mt-2">

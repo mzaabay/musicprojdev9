@@ -21,8 +21,10 @@ export class ConnexionComponent implements OnInit {
     this.http.post('http://localhost:8289/login', value).subscribe({
       next: (data) => {
         this.user = data;
+        console.log(data); /////
         if (this.user != null) {
           sessionStorage.setItem('userConnected', JSON.stringify(this.user));
+          console.log(sessionStorage.getItem('userConnected')); /////
           this.route.navigateByUrl('home');
         } else {
           this.msg = 'identifiant ou mdp inccorect';

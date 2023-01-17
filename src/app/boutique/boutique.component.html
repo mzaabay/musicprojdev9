@@ -10,6 +10,7 @@
         aria-expanded="false">
         Dropdown button
     </button>
+    <p class="text-danger text-center"> {{ msg }} </p>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -47,14 +48,18 @@
                             <option value="5">5</option>
                         </select>
 
-                        <button (click)="ajoutProduit(m.id, quantity.value)" class="btn btn-dark btn-sm ">Ajouter au
+                        <button (click)="ajoutProduitAuPanier(m.id, quantity.value)"
+                            class="btn btn-dark btn-sm ">Ajouter au
                             panier</button>
 
+
                     </div>
+
 
                 </div>
             </div>
         </div>
+
 
         <div class="col">
             <div class="card h-100">
