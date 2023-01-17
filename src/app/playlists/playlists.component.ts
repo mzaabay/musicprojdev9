@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent implements OnInit {
+  @ViewChild('morceau') public morceau: any
 
   playlist: any;
   nbMorceau: any;
@@ -20,6 +21,39 @@ export class PlaylistsComponent implements OnInit {
       error: (err) => { console.log(err) },
 
     });
+  }
 
+  produit: any;
+  msg: any;
+  commande: any;
+
+  ajoutMorceau(morceau: any) {
+    this.http.put('http://localhost:8289/playlist/add/999', {
+      "id": "999",
+      "user": {
+        "id": "1"
+      },
+      "morceau": {
+        "id": morceau
+      }
+    }).subscribe({
+      next: (data) => {
+        this.produit = data;
+        this.msg = 'Morceau ajouté';
+      },
+      error: (err) => { console.log(err) }
+    });
+    location.reload();
+  }
+  supprimeMorceau(id_playlist: any) {
+    this.http.delete('http://localhost:8289/playlist/delete/' + id_playlist, {}
+    ).subscribe({
+      next: (data) => {
+        this.produit = data;
+        this.msg = 'Morceau supprimé';
+      },
+      error: (err) => { console.log(err) }
+    });
+    location.reload();
   }
 }
