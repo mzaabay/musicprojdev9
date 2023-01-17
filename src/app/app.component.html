@@ -12,7 +12,7 @@
 
         <!-- Search form -->
         <form class="input-group w-auto my-auto d-none d-sm-flex">
-          <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
+          <input autocomplete="off" type="search" class="form-control rounded" placeholder="Rechercher"
             style="min-width: 125px;" />
           <span class="input-group-text border-0 d-none d-lg-flex"><i class="fas fa-search"></i></span>
         </form>
@@ -20,45 +20,48 @@
       <!-- Left elements -->
 
       <!-- Center elements -->
-      <ul class="navbar-nav flex-row d-none d-md-flex">
+      <ul class="navbar-nav flex-row d-none d-md-flex display-5">
         <li class="nav-item me-3 me-lg-1 "> <!-- TODO GERER LES ACTIVE ICONS-->
-          <a class="nav-link" routerLink="home">
-            <i class="fas fa-home fa-lg"></i>
-          </a>
+          <a class="nav-link" routerLink="home">Accueil</a>
         </li>
 
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link" routerLink="evenements">
-            <i class="fas fa-calendar fa-lg" aria-hidden="true"></i>
+            <!-- <i class="fas fa-calendar fa-lg" aria-hidden="true"></i>-->
+            Evenements
           </a>
         </li>
 
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link" routerLink="playlists">
-            <span><i class="fas fa-play fa-lg"></i></span>
+            <!--   <span><i class="fas fa-play fa-lg"></i></span>          -->
+            Playlist
           </a>
         </li>
-
 
 
         <li class="nav-item me-3 me-lg-1">
           <a class="nav-link" routerLink="boutique">
-            <i class="fas fa-shopping-bag fa-lg"></i>
+            <!-- <i class="fas fa-shopping-bag fa-lg"></i>-->
+            Boutique
           </a>
         </li>
 
         <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link" routerLink="login/panier">
-            <span><i class="fas fa-shopping-cart fa-lg"></i></span>
+          <a class="nav-link" routerLink="boutique">
+            <!-- <i class="fas fa-shopping-bag fa-lg"></i>-->
+            Billeterie
           </a>
         </li>
+
+
 
 
       </ul>
       <!-- Center elements -->
 
       <!-- Right elements -->
-      <ul class="navbar-nav flex-row">
+      <ul class="navbar-nav flex-row display-5">
 
         <!-- If not connected-->
 
@@ -69,6 +72,13 @@
             </a>
           </li>
         </div>
+
+        <li class="nav-item me-3 me-lg-1">
+          <a class="nav-link" routerLink="login/panier">
+            <!--<span><i class="fas fa-shopping-cart fa-lg"></i></span> -->
+            Panier
+          </a>
+        </li>
 
         <!-- If connected  -->
         <div class="d-flex" *ngIf="service.isConnected()">
