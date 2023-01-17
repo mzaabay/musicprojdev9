@@ -9,6 +9,8 @@
         <!--/.Indicators-->
         <!--Slides-->
 
+
+
         <div class="carousel-inner" role="listbox">
 
             <div class="carousel-item active">
@@ -25,6 +27,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="carousel-item" *ngFor="let m of events.slice(1)">
                 <div class="view">
                     <img class="d-block w-100" src="{{m.image_carousel}}" alt="First slide">
@@ -59,9 +63,12 @@
             </div>
         </div>
         <p></p>
+        <p class="text-danger text-center"> {{ msg }} </p>
         <div class="row">
+
             <div class="col-3" *ngFor="let m of events | filter:searchText">
                 <div class="card card-cascade narrower">
+
                     <!-- Card image -->
                     <div class="view view-cascade overlay">
                         <img class="card-img-top" src="{{m.image_mini}}" alt="Card image cap">
@@ -82,7 +89,9 @@
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
                         <h6 class="font-weight-bold card-title">{{m.prix}}€ TTC</h6>
-                        <a class="btn btn-unique">Ajouter au panier</a>
+                        <a (click)="ajoutEvenementABilleterie(m.id)" class="btn btn-unique">Ajouter au panier</a>
+
+
 
                     </div>
 
