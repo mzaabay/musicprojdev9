@@ -13,10 +13,24 @@
                 <tr>
                     <td>{{ item.produits.designation }}</td>
                     <td>{{ item.produits.prix }} €</td>
-                    <td>{{ item.quantite }}</td>
+                    <td>{{ item.quantite }} </td>
+
+                    <td><select #quantity id="quantity" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+
+                    <td><button (click)="modifQuantite(item.produits.id, quantity.value)">Modifier la quantite</button>
+                    </td>
+
                     <td><button (click)="suppressionProduitDuPanier(item.id)">Supprimer du
                             panier</button>
                     </td>
+
+
                 </tr>
 
             </tbody>
@@ -28,7 +42,7 @@
 
     <br><br>
     <div class="container">
-        <h1>Événement</h1>
+        <h1>Événements</h1>
         <table class="table">
             <thead>
                 <tr>
