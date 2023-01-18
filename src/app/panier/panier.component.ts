@@ -63,9 +63,6 @@ export class PanierComponent implements OnInit {
       },
       error: (err) => { console.log(err) }
     });
-
-
-
   }
 
   suppressionEvenementDuPanier(id_evenement: any) {

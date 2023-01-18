@@ -13,20 +13,25 @@ export class PlaylistsComponent implements OnInit {
   playlist: any;
 
   @ViewChild('audioPlayer', { static: true }) audioPlayer: any;
-  audioUrl = 'assets/audio/Rick Roll.mp3';
+
 
   constructor(private http: HttpClient, private route: Router, public service: UtilityService) { }
 
   ngOnInit(): void {
     this.http.get('http://localhost:8289/playlist').subscribe({
-      next: (data) => { this.playlist = data },
+      next: (data) => {
+        this.playlist = data;
+      },
       error: (err) => { console.log(err) },
     });
     this.http.get('http://localhost:8289/morceau').subscribe({
-      next: (data) => { this.morceau = data },
+      next: (data) => {
+        this.morceau = data;
+      },
       error: (err) => { console.log(err) },
     });
   }
+
 
   playAudio() {
     this.audioPlayer.nativeElement.play();

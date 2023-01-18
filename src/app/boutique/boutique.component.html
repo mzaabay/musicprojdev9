@@ -25,7 +25,8 @@
 
         <div class="col" *ngFor="let m of products | filter:searchText">
             <div class="card h-100">
-                <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
+                    style="width: 243px; height: 243px;" />
                 <div class="card-body mb-2">
                     <h5 class="card-title text-center">{{ m.designation}}</h5>
                     <p class="card-text">
