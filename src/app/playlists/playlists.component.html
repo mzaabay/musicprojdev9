@@ -14,7 +14,7 @@
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
-                        <tr *ngIf="item.user.id == 1">
+                        <tr *ngIf="item.user.id == this.service.getId()">
                             <td>{{ item.morceau.album }}</td>
                             <td>{{ item.morceau.nom }}</td>
                             <td>{{ item.morceau.auteur }}</td>

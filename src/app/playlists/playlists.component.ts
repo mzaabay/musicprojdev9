@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-playlists',
@@ -11,7 +12,7 @@ export class PlaylistsComponent implements OnInit {
   morceau: any
   playlist: any;
   nbMorceau: any;
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient, private route: Router, public service: UtilityService) { }
 
   ngOnInit(): void {
 
@@ -34,7 +35,7 @@ export class PlaylistsComponent implements OnInit {
     this.http.put('http://localhost:8289/playlist/add/99999', {
       "id": "99999",
       "user": {
-        "id": "1"
+        "id": this.service.getId()
       },
       "morceau": {
         "id": morceau
