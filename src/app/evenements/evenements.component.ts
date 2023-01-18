@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UtilityService } from '../utility.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evenements',
@@ -9,7 +10,7 @@ import { UtilityService } from '../utility.service';
 })
 export class EvenementsComponent implements OnInit {
   events: any;
-  constructor(private http: HttpClient, public service: UtilityService) { }
+  constructor(private http: HttpClient, public service: UtilityService, private route: Router) { }
 
   ngOnInit(): void {
     this.http.get('http://localhost:8289/evenement/all').subscribe({
@@ -66,6 +67,25 @@ export class EvenementsComponent implements OnInit {
   }
   searchText: any;
 
+
+  RedirectToPageEvenement(id_evenement: any) {
+    this.http.get('http://localhost:8289/evenement/' + id_evenement).subscribe({
+      next: (data) => {
+        this.events = data
+        this.id = Object.values(data).map(item => item.id).pop()
+        console.log(this.id);
+        localStorage.setItem('id', this.id);
+        console.log(localStorage.getItem('id'));
+
+        this.route.navigateByUrl('/evenements/page');
+      },
+      error: (err) => { console.log(err) }
+
+    });
+
+
+    localStorage.removeItem('id')
+  }
 
 }
 
