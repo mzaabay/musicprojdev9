@@ -73,5 +73,11 @@ export class UtilityService {
     return (this.user.avatar);
   }
 
+  setAvatar(img: any) {
+    let u: any = sessionStorage.getItem('userConnected');
+    this.user = JSON.parse(u);
+    this.user.avatar = img;
+  }
+
 
 }

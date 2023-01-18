@@ -27,6 +27,28 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
+  <!-- pre-zone polyfills -->
+<script src="node_modules/core-js/client/shim.min.js"></script>
+<script src="node_modules/web-animations-js/web-animations.min.js"></script>
+<script>
+  /**
+   * you can configure some zone flags which can disable zone interception for some
+   * asynchronous activities to improve startup performance - use these options only
+   * if you know what you are doing as it could result in hard to trace down bugs..
+   */
+  // __Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
+  // __Zone_disable_on_property = true; // disable patch onProperty such as onclick
+  // __zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+  
+  /*
+   * in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+   * with the following flag, it will bypass `zone.js` patch for IE/Edge
+   */
+  // __Zone_enable_cross_context_check = true;
+</script>
+<!-- zone.js required by Angular -->
+<script src="node_modules/zone.js/bundles/zone.umd.js"></script>
+
 </head>
 
 <body>
@@ -37,13 +59,14 @@
 <footer class="text-center text-white">
 
   <!-- Grid container -->
-  <div class=" pt-1 bg-light">
+  <div class=" pt-100">
 
 
     <!-- Section: Links  -->
-    <section class="text-dark">
-      <div class="container text-center text-md-start mt-5">
+    <section class="text-dark" style="background-color: #b6946d33;">
+      <div class="container text-center text-md-start mt-50">
         <!-- Grid row -->
+        <br><br>
         <div class="row mt-3">
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -124,7 +147,7 @@
     </section>
     <!-- Section: Links  -->
     <!-- Section: Social media -->
-    <section class="mb-0">
+    <section class="mb-0" style="background-color: #b6946d33;">
       <!-- Facebook -->
       <a class="btn btn-link btn-floating btn-lg text-dark m-0" href="https://www.caisse-epargne.fr/votre-banque/securite/faux-service-fraude/   
       " role="button" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
