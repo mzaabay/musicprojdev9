@@ -10,8 +10,8 @@
                 <!-- Account -->
                 <div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src={{url}} alt="user-avatar" class="d-block rounded" height="100" width="100"
-                            id="uploadedAvatar">
+                        <img [src]="mediaUrl" *ngIf="mediaUrl" name="avatar" class="d-block rounded" height="100"
+                            width="100" id="uploadedAvatar">
                         <div class="button-wrapper">
                             <label for="upload" class="btn btn-primary me-1 mb-2" tabindex="0">
                                 <span class="d-none d-sm-block">Téléchargez une image</span>
@@ -67,8 +67,8 @@
                             </div>
 
                             <div class="mb-3 col-md-6">
-                                <label for="zipCode" class="form-label">Code Postal</label>
-                                <input ngModel="" type="text" class="form-control" id="zipCode" name="codePostale"
+                                <label for="zipCode" class="form-label">Code Postale</label>
+                                <input ngModel="" type="text" class="form-control" id="zipCode" name="code_Postale"
                                     placeholder="*Obligatoire" maxlength="6">
                             </div>
 

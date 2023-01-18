@@ -22,6 +22,7 @@ const routes: Routes = [
   { component: HomeComponent, path: 'home' },
   { component: RegisterComponent, path: 'register' },
   { component: MdpComponent, path: 'mdp' }
+
 ];
 
 @NgModule({

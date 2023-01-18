@@ -9,21 +9,27 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  message: any;
+  imagePath: any;
+  mediaUrl: any;
+  user: any;
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
   ngOnInit(): void {
 
+    this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
+      next: (data) => {
+
+        if (this.service.getAvatar() != null) {
+          this.mediaUrl = data;
+        }
+        else {
+          this.mediaUrl = "/assets/images/avatar.png"
+
+        }
+      }
+    })
 
   }
-
-  message: any;
-  imagePath: any;
-  url: any;
-  user: any;
-
-
-
-
-
 
   onFileChanged(event: any) {
     const files = event.target.files;
@@ -40,7 +46,21 @@ export class UserComponent implements OnInit {
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.url = reader.result;
+      this.mediaUrl = reader.result;
+      console.log(this.mediaUrl)
+      this.http.patch('http://localhost:8289/user/' + this.service.getId(),
+        {
+          "login": this.service.getLogin(),
+          "password": this.service.getPassword(),
+          "nom": this.service.getNom(),
+          "prenom": this.service.getPrenom(),
+          "mail": this.service.getMail(),
+          "adresse": this.service.getAdresse(),
+          "code_Postale": this.service.getcode_postale(),
+          "avatar": this.mediaUrl
+        }
+      ).subscribe()
+
     }
 
   }
