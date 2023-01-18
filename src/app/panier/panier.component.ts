@@ -126,4 +126,9 @@ export class PanierComponent implements OnInit {
 
 
 
+
+
+
+
+
 }
