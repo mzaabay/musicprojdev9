@@ -14,6 +14,9 @@
                     <td>{{ item.produits.designation }}</td>
                     <td>{{ item.produits.prix }} €</td>
                     <td>{{ item.quantite }}</td>
+                    <td><button (click)="suppressionProduitDuPanier()">Supprimer du
+                            panier</button>
+                    </td>
                 </tr>
 
             </tbody>
@@ -39,8 +42,8 @@
                     <td>{{ i.evenements.nom }}</td>
                     <td>{{ i.evenements.prix }} €</td>
                     <td>{{ i.evenements.date }}</td>
-                </tr>
 
+                </tr>
             </tbody>
         </table>
         <p>Sous total : <span class="subtotal"></span> {{ coutEvenement() }} €</p>

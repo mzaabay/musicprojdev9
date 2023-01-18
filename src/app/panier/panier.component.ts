@@ -51,6 +51,11 @@ export class PanierComponent implements OnInit {
 
   }
 
+  suppressionProduitDuPanier() {
+
+
+  }
+
 
 
 
