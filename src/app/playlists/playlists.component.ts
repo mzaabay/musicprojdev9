@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent implements OnInit {
-  @ViewChild('morceau') public morceau: any
-
+  morceau: any
   playlist: any;
   nbMorceau: any;
   constructor(private http: HttpClient, private route: Router) { }
@@ -50,7 +49,7 @@ export class PlaylistsComponent implements OnInit {
     });
   }
   supprimeMorceau(id_playlist: any) {
-    this.http.delete('http://localhost:8289/playlist/delete/' + id_playlist, {}
+    this.http.delete('http://localhost:8289/playlist/delete/' + id_playlist
     ).subscribe({
       next: (data) => {
         this.produit = data;
