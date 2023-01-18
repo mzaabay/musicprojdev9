@@ -20,11 +20,11 @@ export class PlaylistsComponent implements OnInit {
       next: (data) => { this.playlist = data },
       error: (err) => { console.log(err) },
     });
+
     this.http.get('http://localhost:8289/morceau').subscribe({
       next: (data) => { this.morceau = data },
       error: (err) => { console.log(err) },
     });
-
   }
 
   produit: any;
@@ -55,7 +55,7 @@ export class PlaylistsComponent implements OnInit {
       next: (data) => {
         this.produit = data;
         this.msg = 'Morceau supprimé';
-
+        this.ngOnInit();
       },
       error: (err) => { console.log(err) }
     });
