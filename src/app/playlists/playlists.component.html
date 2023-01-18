@@ -22,7 +22,7 @@
                             <td>{{ item.morceau.nom }}</td>
                             <td>{{ item.morceau.auteur }}</td>
                             <td>{{ item.morceau.genre }}</td>
-                            <td><button (click)="supprimeMorceau(item.morceau.id)" type="button"
+                            <td><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
                             <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
                                 <button (click)="playAudio()">Play</button>
