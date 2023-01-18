@@ -14,7 +14,7 @@
                     <td>{{ item.produits.designation }}</td>
                     <td>{{ item.produits.prix }} €</td>
                     <td>{{ item.quantite }}</td>
-                    <td><button (click)="suppressionProduitDuPanier()">Supprimer du
+                    <td><button (click)="suppressionProduitDuPanier(item.id)">Supprimer du
                             panier</button>
                     </td>
                 </tr>
@@ -42,6 +42,9 @@
                     <td>{{ i.evenements.nom }}</td>
                     <td>{{ i.evenements.prix }} €</td>
                     <td>{{ i.evenements.date }}</td>
+                    <td><button (click)="suppressionEvenementDuPanier(i.id)">Supprimer du
+                            panier</button>
+                    </td>
 
                 </tr>
             </tbody>

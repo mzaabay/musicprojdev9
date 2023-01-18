@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -9,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class PanierComponent implements OnInit {
   panier: any;
   evenement: any
-  constructor(private http: HttpClient) { }
+  produit: any
+  msg: any
+  constructor(private http: HttpClient, private route: Router) { }
 
   ngOnInit(): void {
     this.http.get('http://localhost:8289/panier').subscribe({
@@ -31,6 +34,8 @@ export class PanierComponent implements OnInit {
 
 
   }
+
+
   coutPanier(): any {
     let total = 0;
     for (let i = 0; i < this.panier.length; i++) {
@@ -51,7 +56,37 @@ export class PanierComponent implements OnInit {
 
   }
 
-  suppressionProduitDuPanier() {
+
+  suppressionProduitDuPanier(id_produit: any) {
+    this.http.delete('http://localhost:8289/panier/delete/' + id_produit, {}
+    ).subscribe({
+      next: (data) => {
+        this.produit = data;
+        this.ngOnInit();
+
+
+
+      },
+      error: (err) => { console.log(err) }
+    });
+
+
+
+  }
+
+  suppressionEvenementDuPanier(id_evenement: any) {
+    this.http.delete('http://localhost:8289/billeterie/delete/' + id_evenement, {}
+    ).subscribe({
+      next: (data) => {
+        this.evenement = data;
+        this.ngOnInit();
+
+
+
+      },
+      error: (err) => { console.log(err) }
+    });
+
 
 
   }
