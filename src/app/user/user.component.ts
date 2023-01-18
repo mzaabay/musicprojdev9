@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
 
@@ -8,14 +8,21 @@ import { UtilityService } from '../utility.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
+  constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
+  ngOnInit(): void {
+
+
+  }
+
   message: any;
   imagePath: any;
   url: any;
   user: any;
 
 
-  constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
+
+
 
 
   onFileChanged(event: any) {
@@ -49,7 +56,7 @@ export class UserComponent {
           this.message = "Changements pris en compte";
         }
         else {
-          this.message = 'Erreur dans lupdate';
+          this.message = "Erreur dans l'update";
         }
       }
     })

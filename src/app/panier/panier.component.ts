@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PanierComponent implements OnInit {
   panier: any;
+  evenement: any
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -19,13 +20,31 @@ export class PanierComponent implements OnInit {
 
     });
 
+    this.http.get('http://localhost:8289/billeterie').subscribe({
+      next: (data) => { this.evenement = data },
+      error: (err) => { console.log(err) }
+
+
+
+    });
+
 
 
   }
-  cout(): any {
+  coutPanier(): any {
     let total = 0;
     for (let i = 0; i < this.panier.length; i++) {
       total += this.panier[i].produits.prix * this.panier[i].quantite;
+    }
+    return total
+
+
+  }
+
+  coutEvenement(): any {
+    let total = 0;
+    for (let i = 0; i < this.evenement.length; i++) {
+      total += this.evenement[i].evenements.prix;
     }
     return total
 

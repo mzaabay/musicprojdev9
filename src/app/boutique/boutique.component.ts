@@ -33,9 +33,9 @@ export class BoutiqueComponent implements OnInit {
   produit: any;
   msg: any;
   id: any;
-  test: any;
-  m: any;
-  filteredData: any;
+
+
+
 
 
 

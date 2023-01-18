@@ -18,10 +18,37 @@
 
             </tbody>
         </table>
+        <p>Sous total : <span class="subtotal"></span> {{ coutPanier() }} €</p>
+
+        <button id="confirm-command">Passer la commande</button>
     </div>
+
+    <br><br>
+    <div class="container">
+        <h1>Événement</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Événement</th>
+                    <th>Prix</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let i of evenement">
+                <tr>
+                    <td>{{ i.evenements.nom }}</td>
+                    <td>{{ i.evenements.prix }} €</td>
+                    <td>{{ i.evenements.date }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p>Sous total : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
+
+        <button id="confirm-command">Passer la commande</button>
+    </div>
+    <br>
+
+
+
 </body>
-
-
-<p>Sous total : <span class="subtotal"></span> {{ cout() }} €</p>
-
-<button id="confirm-command">Passer la commande</button>
