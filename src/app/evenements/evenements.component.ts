@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-evenements',
   templateUrl: './evenements.component.html',
-  styleUrls: ['./evenements.component.css']
+  styleUrls: ['./evenements.component.css'],
 })
 export class EvenementsComponent implements OnInit {
   events: any;

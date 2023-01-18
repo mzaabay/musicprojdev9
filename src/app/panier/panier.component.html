@@ -1,9 +1,11 @@
 <body>
     <div class="container">
-        <h1>Panier</h1>
+        <br>
+        <h1>Boutique</h1>
         <table class="table">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Article</th>
                     <th>Prix</th>
                     <th>Quantité</th>
@@ -25,11 +27,12 @@
                             <option value="5">5</option>
                         </select></td>
 
-                    <td><button (click)="modifQuantite(item.produits.id, quantity.value)">Modifier la quantite</button>
+                    <td><button class="btn btn-outline-info btn-sm"
+                            (click)="modifQuantite(item.produits.id, quantity.value)">Modifier la quantite</button>
                     </td>
 
-                    <td><button (click)="suppressionProduitDuPanier(item.id)">Supprimer du
-                            panier</button>
+                    <td><button class="btn btn-outline-danger btn-sm"
+                            (click)="suppressionProduitDuPanier(item.id)">Supprimer</button>
                     </td>
 
 
@@ -37,7 +40,7 @@
 
             </tbody>
         </table>
-        <p class="font-weight-bold">Sous-total panier : <span class="subtotal"></span> {{ coutPanier() }} €</p>
+        <p class="font-weight-bold">Sous-total boutique : <span class="subtotal"></span> {{ coutPanier() }} €</p>
 
 
 
@@ -47,11 +50,12 @@
 
     <br><br>
     <div class="container">
-        <h1>Événements</h1>
+        <h1>Évènements</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Événement</th>
+                    <th></th>
+                    <th></th>
                     <th>Prix</th>
                     <th>Date</th>
                 </tr>
@@ -63,6 +67,8 @@
                     <td>{{ i.evenements.nom }}</td>
                     <td>{{ i.evenements.prix }} €</td>
                     <td>{{ i.evenements.date }}</td>
+
+
                     <td><button (click)="suppressionEvenementDuPanier(i.id)">Supprimer du
                             panier</button>
                     </td>
@@ -70,16 +76,16 @@
                 </tr>
             </tbody>
         </table>
-        <p class="font-weight-bold">Sous-total événements : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
+        <p class="font-weight-bold">Sous-total évènements : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
         <br>
 
 
         <!-- Bouton Collapse pour passer la commande-->
-        <p class="font-weight-bold">Prix total de la commande : <span class="subtotal"></span> {{
-            coutEvenement()+coutPanier() }} €</p>
+        <h4 class="font-weight-bold">Prix total de la commande : <span class="subtotal"></span> {{
+            coutEvenement()+coutPanier() }} €</h4>
         <div class="container">
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#evenement">Passer la
-                commande</button>
+            <button type="button" class="btn btn-outline-success" data-toggle="collapse"
+                data-target="#evenement">Commander</button>
             <div id="evenement" class="collapse">
                 <form>
                     <div class="form-group">
