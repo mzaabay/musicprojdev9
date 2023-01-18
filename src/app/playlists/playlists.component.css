@@ -1,0 +1,9 @@
+table {
+    table-layout: auto;
+    width: 100%;
+    border: 1px solid red;
+}
+
+th {
+    border: 1px solid red;
+}
