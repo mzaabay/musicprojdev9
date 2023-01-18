@@ -83,7 +83,10 @@
                         <!-- Label -->
                         <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> {{m.date}}</h5>
                         <!-- Title -->
-                        <h4 class="font-weight-bold card-title">{{m.nom}}</h4>
+                        <h4 class="font-weight-bold card-title">
+                            <!-- <a class="text-dark" routerLink="/evenements/page"></a>-->
+                            <a (click)="RedirectToPageEvenement(m.id)" class="text-dark">{{m.nom}}</a>
+                        </h4>
                         <h6 class="font-weight-bold card-title">{{m.horaire}}</h6>
                         <!-- Text -->
                         <p class="card-text">{{m.resume}}</p>

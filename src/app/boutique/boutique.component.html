@@ -1,7 +1,7 @@
 <!-- message page boutique -->
 <h2 class="text-center m-5">
-    Bienvenue dans la boutique de Chorus.fr
-    <small class="text-muted">Tout pour vous équiper</small>
+    <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
+    <small class="text-muted">Tout pour vous équiper.</small>
 </h2>
 
 <!-- card des produits-->
@@ -25,14 +25,15 @@
 
         <div class="col" *ngFor="let m of products | filter:searchText">
             <div class="card h-100">
-                <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+                <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
+                    style="width: 243px; height: 243px;" />
                 <div class="card-body mb-2">
                     <h5 class="card-title text-center">{{ m.designation}}</h5>
                     <p class="card-text">
                         Catégorie : {{ m.categorie}}
                     </p>
                     <p>
-                        Prix : {{ m.prix}} $
+                        Prix : {{ m.prix}} €
                     </p>
                     <div>
 
@@ -51,8 +52,7 @@
                             class="btn btn-dark btn-sm ">Ajouter au
                             panier</button>
 
-                        <button (click)="suppressionProduitDuPanier(m.id)" class="btn btn-dark btn-sm ">Supprimer du
-                            panier</button>
+
 
 
                     </div>

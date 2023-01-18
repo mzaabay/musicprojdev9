@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
 
@@ -8,15 +8,34 @@ import { UtilityService } from '../utility.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
   message: any;
   imagePath: any;
-  url: any;
+  mediaUrl: any;
   user: any;
-
+  editmode = false;
 
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
+  ngOnInit(): void {
+    this.editmode = false;
+    this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
+      next: (data) => {
 
+        if (this.service.getAvatar() != null) {
+          this.mediaUrl = data;
+        }
+        else {
+          this.mediaUrl = "/assets/images/avatar.png"
+
+        }
+      }
+    })
+
+  }
+
+  toggleDiv() {
+    this.editmode = !this.editmode;
+  }
 
   onFileChanged(event: any) {
     const files = event.target.files;
@@ -33,7 +52,21 @@ export class UserComponent {
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.url = reader.result;
+      this.mediaUrl = reader.result;
+      console.log(this.mediaUrl)
+      this.http.patch('http://localhost:8289/user/' + this.service.getId(),
+        {
+          "login": this.service.getLogin(),
+          "password": this.service.getPassword(),
+          "nom": this.service.getNom(),
+          "prenom": this.service.getPrenom(),
+          "mail": this.service.getMail(),
+          "adresse": this.service.getAdresse(),
+          "code_Postale": this.service.getcode_postale(),
+          "avatar": this.mediaUrl
+        }
+      ).subscribe()
+
     }
 
   }
@@ -49,7 +82,7 @@ export class UserComponent {
           this.message = "Changements pris en compte";
         }
         else {
-          this.message = 'Erreur dans lupdate';
+          this.message = "Erreur dans l'update";
         }
       }
     })

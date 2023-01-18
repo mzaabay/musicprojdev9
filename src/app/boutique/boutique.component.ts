@@ -35,21 +35,8 @@ export class BoutiqueComponent implements OnInit {
   id: any;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   ajoutProduitAuPanier(id_produit: any, quantite: any) {
-    if (this.service.isConnected()) {
+    if (this.service.isConnected()) {                                                     //Vérifie si on est bien connecté
       this.http.get('http://localhost:8289/panier/produit/' + id_produit).subscribe({
         next: (data) => {
           if (Object.values(data).map(item => item.id).pop() != undefined) {
@@ -61,9 +48,6 @@ export class BoutiqueComponent implements OnInit {
             this.http.put('http://localhost:8289/panier/' + localStorage.getItem('id'), {
               "id": localStorage.getItem('id'),
               "quantite": quantite,
-              "commandes": {
-                "id": 3
-              },
               "produits": {
                 "id": id_produit
               }
@@ -79,9 +63,6 @@ export class BoutiqueComponent implements OnInit {
             this.http.put('http://localhost:8289/panier/999', {
               "id": 999,
               "quantite": quantite,
-              "commandes": {
-                "id": 3
-              },
               "produits": {
                 "id": id_produit
               }
@@ -96,17 +77,6 @@ export class BoutiqueComponent implements OnInit {
         },
         error: (err) => { console.log(err) }
       });
-
-
-
-
-
-
-
-
-
-
-
     }
     else {
       this.msg = 'veuillez vous connecter';
@@ -119,9 +89,7 @@ export class BoutiqueComponent implements OnInit {
 
 
 
-  suppressionProduitDuPanier(id_produit: any) {
 
-  }
 
   // pour la barre de recherche -->
   searchText: any;

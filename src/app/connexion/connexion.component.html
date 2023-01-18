@@ -3,7 +3,9 @@
         <div class="mt-5">
             <div style="margin: auto; width: 40%">
                 <form #fLogin="ngForm" (ngSubmit)="connexion(fLogin.value)">
+
                     <div class="card p-3 z-depth-3">
+                        <h3 class="text" style="text-align: center;">S'identifier</h3>
                         <div class="md-form">
                             <label>Login</label>
                             <input ngModel="" name="login" type="text" class="form-control">
@@ -15,12 +17,12 @@
                         <div class="text-center">
                             <span><a routerLink="/mdp">Mot de passe oublié ?</a></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm btn-block">connexion</button>
-
-
+                        <button type="submit" class="btn btn-primary btn-block">connexion</button>
                         <br>
-                        <!-- Register buttons -->
+                        <p class="text-danger text-center"> {{ msg }} </p>
+                        <br>
 
+                        <!-- Register buttons -->
                         <div class="text-center">
                             <p>Pas encore inscrit ? <a routerLink="/register">Inscription</a></p>
                             <p>ou rejoint nous à travers:</p>
@@ -37,10 +39,10 @@
                             </button>
                         </div>
                         <br>
-                        <p class="text-danger text-center"> {{ msg }} </p>
+
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
 </div>

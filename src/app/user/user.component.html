@@ -2,6 +2,8 @@
 <div class="container-xl flex-grow-1 container-p-y">
 
 
+
+
     <div class="row">
         <div class="col-md-12">
 
@@ -10,8 +12,8 @@
                 <!-- Account -->
                 <div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src={{url}} alt="user-avatar" class="d-block rounded" height="100" width="100"
-                            id="uploadedAvatar">
+                        <img [src]="mediaUrl" *ngIf="mediaUrl" name="avatar" class="d-block rounded" height="100"
+                            width="100" id="uploadedAvatar">
                         <div class="button-wrapper">
                             <label for="upload" class="btn btn-primary me-1 mb-2" tabindex="0">
                                 <span class="d-none d-sm-block">Téléchargez une image</span>
@@ -26,7 +28,57 @@
                     </div>
                 </div>
                 <hr class="my-3">
-                <div class="card-body">
+
+
+
+                <div *ngIf="editmode" class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nom et prénom</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ service.getNom() }} {{ service.getPrenom() }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ service.getMail() }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Adresse</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ service.getAdresse() }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Code Postale</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ service.getcode_postale() }}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button (click)="toggleDiv()" class="btn btn-info " target="__blank">Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div *ngIf="!editmode" class="card-body">
                     <form #fUpdate="ngForm" (ngSubmit)="update(fUpdate.value)" id="formAccountSettings">
                         <div class="row">
 
@@ -67,8 +119,8 @@
                             </div>
 
                             <div class="mb-3 col-md-6">
-                                <label for="zipCode" class="form-label">Code Postalqdzq</label>
-                                <input ngModel="" type="text" class="form-control" id="zipCode" name="codePostale"
+                                <label for="zipCode" class="form-label">Code Postale</label>
+                                <input ngModel="" type="text" class="form-control" id="zipCode" name="code_Postale"
                                     placeholder="*Obligatoire" maxlength="6">
                             </div>
 
@@ -79,34 +131,38 @@
 
                         </div>
                         <div class="mt-2">
-                            <button type="submit" class="btn btn-primary me-2">Sauvegarder</button>
+                            <button (click)="toggleDiv()" type="submit"
+                                class="btn btn-primary me-2">Sauvegarder</button>
                             <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                         </div>
                     </form>
                 </div>
-                <!-- /Account -->
+
             </div>
-            <div class="card">
-                <h5 class="card-header">Supprimer le compte</h5>
-                <div class="card-body">
-                    <div class="mb-3 col-12 mb-0">
-                        <div class="alert alert-warning">
-                            <h6 class="alert-heading fw-bold mb-1">Êtes-vous sûr de vouloir supprimer votre compte ?
-                            </h6>
-                            <p class="mb-0">Une fois supprimé, votre compte ne sera pas récupérable.</p>
-                        </div>
-                    </div>
-                    <form id="formAccountDeactivation" (submit)="deleteUser()">
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" name="accountActivation"
-                                id="accountActivation">
-                            <label class="form-check-label" for="accountActivation">Je confirme la suppression de mon
-                                compte.</label>
-                        </div>
-                        <button type="submit" class="btn btn-danger deactivate-account">Supprimer mon compte</button>
-                    </form>
-                </div>
-            </div>
+            <!-- /Account -->
         </div>
+        <div *ngIf="!editmode" class="card">
+            <h5 class="card-header">Supprimer le compte</h5>
+            <div class="card-body">
+                <div class="mb-3 col-12 mb-0">
+                    <div class="alert alert-warning">
+                        <h6 class="alert-heading fw-bold mb-1">Êtes-vous sûr de vouloir supprimer votre compte ?
+                        </h6>
+                        <p class="mb-0">Une fois supprimé, votre compte ne sera pas récupérable.</p>
+                    </div>
+                </div>
+                <form id="formAccountDeactivation" (submit)="deleteUser()">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation">
+                        <label class="form-check-label" for="accountActivation">Je confirme la suppression de mon
+                            compte.</label>
+                    </div>
+                    <button type="submit" class="btn btn-danger deactivate-account">Supprimer mon compte</button>
+                </form>
+                <br>
+            </div>
+            <br>
+        </div>
+
     </div>
 </div>

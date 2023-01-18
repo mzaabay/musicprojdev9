@@ -27,7 +27,7 @@ export class ConnexionComponent implements OnInit {
           console.log(sessionStorage.getItem('userConnected')); /////
           this.route.navigateByUrl('home');
         } else {
-          this.msg = 'identifiant ou mdp inccorect';
+          this.msg = 'Identifiant ou Mot de passe incorrect';
         }
       },
       error: (err) => { console.log(err) }

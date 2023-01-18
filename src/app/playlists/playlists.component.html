@@ -1,58 +1,69 @@
 <body>
+
+
     <div class="text-center">
-        <div class="container">
+        <br><br>
+        <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
+        <div class="container-fluid">
+            <br>
             <h1>Playlist</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Album</th>
-                        <th>Nom</th>
-                        <th>Auteur</th>
-                        <th>Genre</th>
-                        <th>Ajout</th>
-                        <th>Suppression</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let item of playlist">
-                    <tr *ngIf="item.user.id == 1">
-                        <td>{{ item.morceau.album }}</td>
-                        <td>{{ item.morceau.nom }}</td>
-                        <td>{{ item.morceau.auteur }}</td>
-                        <td>{{ item.morceau.genre }}</td>
-                        <td><button (click)="ajoutMorceau(item.morceau.id)" class="btn btn-dark btn-sm ">Ajouter à
-                                la playlist</button></td>
-                        <td><button (click)="supprimeMorceau(item.id)" type="button"
-                                class="btn btn-secondary btn-sm">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Album</th>
+                            <th>Nom</th>
+                            <th>Auteur</th>
+                            <th>Genre</th>
+                            <th>Delete</th>
+                            <th>Lecteur pas trop cassé</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of playlist">
+                        <tr *ngIf="item.user.id == this.service.getId()">
+                            <td>{{ item.morceau.album }}</td>
+                            <td>{{ item.morceau.nom }}</td>
+                            <td>{{ item.morceau.auteur }}</td>
+                            <td>{{ item.morceau.genre }}</td>
+                            <td><button (click)="supprimeMorceau(item.id)" type="button"
+                                    class="btn btn-secondary btn-sm">Delete</button></td>
+                            <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
+                                <button (click)="playAudio()">Play</button>
+                                <button (click)="pauseAudio()">Pause</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="container">
             <h1>Morceau disponible</h1>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Album</th>
                         <th>Nom</th>
                         <th>Auteur</th>
                         <th>Genre</th>
+                        <th>Add</th>
+                        <th>Lecteur pas trop cassé</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let i of morceau">
+                <tbody *ngFor="let item of morceau">
                     <tr>
-                        <td>{{ i.album }}</td>
-                        <td>{{ i.nom }}</td>
-                        <td>{{ i.auteur }}</td>
-                        <td>{{ i.genre }}</td>
-                        <td>{{ i.id }}</td>
+                        <td>{{ item.album }}</td>
+                        <td>{{ item.nom }}</td>
+                        <td>{{ item.auteur }}</td>
+                        <td>{{ item.genre }}</td>
+                        <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
+                                playlist</button></td>
+                        <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
+                            <button (click)="playAudio()">Play</button>
+                            <button (click)="pauseAudio()">Pause</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </body>
-
-
-<p>Sous total : <span class="subtotal"></span> €</p>
-
-<button id="confirm-command">Passer la commande</button>
