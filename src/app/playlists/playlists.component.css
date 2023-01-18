@@ -1,9 +1,13 @@
-table {
+/* table {
+    margin-left: auto;
+    margin-right: auto;
     table-layout: auto;
     width: 100%;
     border: 1px solid red;
+    margin: 5%; 
 }
 
-th {
+th,
+td {
     border: 1px solid red;
-}
+} */
