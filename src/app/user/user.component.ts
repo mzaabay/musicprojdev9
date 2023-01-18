@@ -13,9 +13,11 @@ export class UserComponent implements OnInit {
   imagePath: any;
   mediaUrl: any;
   user: any;
+  editmode = false;
+
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
   ngOnInit(): void {
-
+    this.editmode = false;
     this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
       next: (data) => {
 
@@ -29,6 +31,10 @@ export class UserComponent implements OnInit {
       }
     })
 
+  }
+
+  toggleDiv() {
+    this.editmode = !this.editmode;
   }
 
   onFileChanged(event: any) {
