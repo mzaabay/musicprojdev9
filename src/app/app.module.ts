@@ -51,7 +51,7 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
     Ng2SearchPipeModule
 
   ],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
