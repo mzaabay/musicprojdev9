@@ -11,6 +11,8 @@
             </thead>
             <tbody *ngFor="let item of panier">
                 <tr>
+                    <img src="{{ item.produits.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
+                        style="width: 100px; height: 67px;" />
                     <td>{{ item.produits.designation }}</td>
                     <td>{{ item.produits.prix }} €</td>
                     <td>{{ item.quantite }} </td>
@@ -35,53 +37,10 @@
 
             </tbody>
         </table>
-        <p>Sous total : <span class="subtotal"></span> {{ coutPanier() }} €</p>
+        <p class="font-weight-bold">Sous-total panier : <span class="subtotal"></span> {{ coutPanier() }} €</p>
 
 
-        <!-- Bouton Collapse pour passer la commande-->
-        <div class="container">
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#panier">Passer la
-                commande</button>
-            <div id="panier" class="collapse">
-                <form>
-                    <div class="form-group">
-                        <label for="firstName">Prénom</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Nom</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom">
-                    </div>
-                    <div class="form-group">
-                        <label for="deliveryAddress">Adresse de livraison</label>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="deliveryStreet"
-                                    placeholder="Entrez votre rue">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <input type="text" class="form-control" id="deliveryCity"
-                                    placeholder="Entrez votre ville">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" id="deliveryZip" placeholder="Code postal">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="paymentMethod">Méthode de paiement</label>
-                        <select class="form-control" id="paymentMethod">
-                            <option>Virement bancaire</option>
-                            <option>Paypal</option>
-                        </select>
-                    </div>
-                    <a class="btn btn-link btn-floating btn-lg text-dark m-0"
-                        href="https://www.caisse-epargne.fr/votre-banque/securite/faux-service-fraude" role="button"
-                        data-mdb-ripple-color="dark">Payer</a>
-                </form>
 
-            </div>
-        </div>
 
 
     </div>
@@ -99,6 +58,8 @@
             </thead>
             <tbody *ngFor="let i of evenement">
                 <tr>
+                    <img class="card-img-top" src="{{i.evenements.image_mini}}" alt="Card image cap"
+                        style="width: 100px; height: 67px;">
                     <td>{{ i.evenements.nom }}</td>
                     <td>{{ i.evenements.prix }} €</td>
                     <td>{{ i.evenements.date }}</td>
@@ -109,9 +70,13 @@
                 </tr>
             </tbody>
         </table>
-        <p>Sous total : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
+        <p class="font-weight-bold">Sous-total événements : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
+        <br>
+
 
         <!-- Bouton Collapse pour passer la commande-->
+        <p class="font-weight-bold">Prix total de la commande : <span class="subtotal"></span> {{
+            coutEvenement()+coutPanier() }} €</p>
         <div class="container">
             <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#evenement">Passer la
                 commande</button>
