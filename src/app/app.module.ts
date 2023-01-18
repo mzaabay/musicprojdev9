@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { ProfilComponent } from './profil/profil.component';
 import { MdpComponent } from './mdp/mdp.component';
+import { PageEvenementsComponent } from './page-evenements/page-evenements.component';
 
 
 
@@ -36,7 +37,8 @@ import { MdpComponent } from './mdp/mdp.component';
     HomeComponent,
     RegisterComponent,
     ProfilComponent,
-    MdpComponent
+    MdpComponent,
+    PageEvenementsComponent
   ],
   imports: [
     BrowserModule,
