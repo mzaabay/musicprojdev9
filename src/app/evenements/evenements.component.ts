@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UtilityService } from '../utility.service';
 
-
 @Component({
   selector: 'app-evenements',
   templateUrl: './evenements.component.html',
-  styleUrls: ['./evenements.component.css']
+  styleUrls: ['./evenements.component.css'],
 })
 export class EvenementsComponent implements OnInit {
   events: any;
