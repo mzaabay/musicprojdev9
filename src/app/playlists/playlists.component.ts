@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
@@ -9,23 +9,37 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent implements OnInit {
-  morceau: any
+  morceau: any;
   playlist: any;
-  nbMorceau: any;
+
+  @ViewChild('audioPlayer', { static: true }) audioPlayer: any;
+  audioUrl = 'assets/audio/Rick Roll.mp3';
+
   constructor(private http: HttpClient, private route: Router, public service: UtilityService) { }
 
   ngOnInit(): void {
-
     this.http.get('http://localhost:8289/playlist').subscribe({
       next: (data) => { this.playlist = data },
       error: (err) => { console.log(err) },
     });
-
     this.http.get('http://localhost:8289/morceau').subscribe({
       next: (data) => { this.morceau = data },
       error: (err) => { console.log(err) },
     });
   }
+
+  playAudio() {
+    this.audioPlayer.nativeElement.play();
+  }
+
+  pauseAudio() {
+    this.audioPlayer.nativeElement.pause();
+  }
+
+  onAudioEnded() {
+    console.log('Audio ended');
+  }
+
 
   produit: any;
   msg: any;
