@@ -19,8 +19,8 @@ export class PlaylistsComponent implements OnInit {
     this.http.get('http://localhost:8289/playlist').subscribe({
       next: (data) => { this.playlist = data },
       error: (err) => { console.log(err) },
-
     });
+    setTimeout(() => { this.ngOnInit() }, 1000 * 1)
   }
 
   produit: any;
@@ -43,7 +43,6 @@ export class PlaylistsComponent implements OnInit {
       },
       error: (err) => { console.log(err) }
     });
-    location.reload();
   }
   supprimeMorceau(id_playlist: any) {
     this.http.delete('http://localhost:8289/playlist/delete/' + id_playlist, {}
@@ -54,6 +53,5 @@ export class PlaylistsComponent implements OnInit {
       },
       error: (err) => { console.log(err) }
     });
-    location.reload();
   }
 }

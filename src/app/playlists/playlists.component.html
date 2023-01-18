@@ -1,31 +1,33 @@
 <body>
     <div class="text-center">
-        <div class="container">
+        <div class="container-fluid">
             <h1>Playlist</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Album</th>
-                        <th>Nom</th>
-                        <th>Auteur</th>
-                        <th>Genre</th>
-                        <th>Ajout</th>
-                        <th>Suppression</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let item of playlist">
-                    <tr *ngIf="item.user.id == 1">
-                        <td>{{ item.morceau.album }}</td>
-                        <td>{{ item.morceau.nom }}</td>
-                        <td>{{ item.morceau.auteur }}</td>
-                        <td>{{ item.morceau.genre }}</td>
-                        <td><button (click)="ajoutMorceau(item.morceau.id)" class="btn btn-dark btn-sm ">Ajouter à
-                                la playlist</button></td>
-                        <td><button (click)="supprimeMorceau(item.id)" type="button"
-                                class="btn btn-secondary btn-sm">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Album</th>
+                            <th>Nom</th>
+                            <th>Auteur</th>
+                            <th>Genre</th>
+                            <th>Ajout</th>
+                            <th>Suppression</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of playlist">
+                        <tr *ngIf="item.user.id == 1">
+                            <td>{{ item.morceau.album }}</td>
+                            <td>{{ item.morceau.nom }}</td>
+                            <td>{{ item.morceau.auteur }}</td>
+                            <td>{{ item.morceau.genre }}</td>
+                            <td><button (click)="ajoutMorceau(item.morceau.id)" class="btn btn-dark btn-sm ">Ajouter à
+                                    la playlist</button></td>
+                            <td><button (click)="supprimeMorceau(item.id)" type="button"
+                                    class="btn btn-secondary btn-sm">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="container">
             <h1>Morceau disponible</h1>
@@ -38,21 +40,15 @@
                         <th>Genre</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let i of morceau">
+                <tbody *ngFor="let item of morceau">
                     <tr>
-                        <td>{{ i.album }}</td>
-                        <td>{{ i.nom }}</td>
-                        <td>{{ i.auteur }}</td>
-                        <td>{{ i.genre }}</td>
-                        <td>{{ i.id }}</td>
+                        <td>{{ item.album }}</td>
+                        <td>{{ item.nom }}</td>
+                        <td>{{ item.auteur }}</td>
+                        <td>{{ item.genre }}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </body>
-
-
-<p>Sous total : <span class="subtotal"></span> €</p>
-
-<button id="confirm-command">Passer la commande</button>
