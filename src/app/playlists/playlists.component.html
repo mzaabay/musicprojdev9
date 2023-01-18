@@ -2,7 +2,7 @@
     <div class="text-center">
         <div class="container-fluid">
             <h1>Playlist</h1>
-            <div class="table-responsive">
+            <div class="table">
                 <table>
                     <thead>
                         <tr>
@@ -10,18 +10,15 @@
                             <th>Nom</th>
                             <th>Auteur</th>
                             <th>Genre</th>
-                            <th>Ajout</th>
-                            <th>Suppression</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
-                        <tr *ngIf="item.user.id == 1">
+                        <tr *ngIf="item.user.id == this.service.getId()">
                             <td>{{ item.morceau.album }}</td>
                             <td>{{ item.morceau.nom }}</td>
                             <td>{{ item.morceau.auteur }}</td>
                             <td>{{ item.morceau.genre }}</td>
-                            <td><button (click)="ajoutMorceau(item.morceau.id)" class="btn btn-dark btn-sm ">Ajouter à
-                                    la playlist</button></td>
                             <td><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
                         </tr>
@@ -31,13 +28,14 @@
         </div>
         <div class="container">
             <h1>Morceau disponible</h1>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Album</th>
                         <th>Nom</th>
                         <th>Auteur</th>
                         <th>Genre</th>
+                        <th>Add</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let item of morceau">
@@ -46,6 +44,8 @@
                         <td>{{ item.nom }}</td>
                         <td>{{ item.auteur }}</td>
                         <td>{{ item.genre }}</td>
+                        <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
+                                playlist</button></td>
                     </tr>
                 </tbody>
             </table>

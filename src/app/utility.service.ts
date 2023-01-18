@@ -67,5 +67,11 @@ export class UtilityService {
     return (this.user.password);
   }
 
+  getAvatar() {
+    let u: any = sessionStorage.getItem('userConnected');
+    this.user = JSON.parse(u);
+    return (this.user.avatar);
+  }
+
 
 }
