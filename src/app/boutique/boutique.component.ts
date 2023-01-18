@@ -12,6 +12,7 @@ import { UtilityService } from '../utility.service';
 export class BoutiqueComponent implements OnInit {
   @ViewChild('quantity') public quantity: any
   @ViewChild('prix') public prix: any
+  @ViewChild('categorie') public categorie: any
 
 
   products: any;
@@ -86,6 +87,8 @@ export class BoutiqueComponent implements OnInit {
 
     localStorage.removeItem('id')
   }
+
+
 
 
 

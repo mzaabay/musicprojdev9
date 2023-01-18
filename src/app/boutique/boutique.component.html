@@ -15,6 +15,8 @@
                 placeholder="Rehercher..." style="min-width: 125px;">
         </div>
     </div>
+
+
     <!-- fin Barre de recherche -->
 
     <h2 class="text-center m-5"></h2>
@@ -24,6 +26,7 @@
     <div class="row m-2 row-cols-1 row-cols-md-4 g-4 ">
 
         <div class="col" *ngFor="let m of products | filter:searchText">
+
             <div class="card h-100">
                 <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
                     style="width: 243px; height: 243px;" />
