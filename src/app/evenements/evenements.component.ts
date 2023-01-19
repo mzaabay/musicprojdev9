@@ -44,7 +44,7 @@ export class EvenementsComponent implements OnInit {
             this.http.put('http://localhost:8289/billeterie/' + localStorage.getItem('id'), {
               "id": localStorage.getItem('id'),
               "quantite": quantite,
-              "evenements": {
+              "evenement": {
                 "id": id_evenement
               },
               "user": {
