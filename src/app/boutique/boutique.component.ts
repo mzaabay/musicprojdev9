@@ -38,7 +38,7 @@ export class BoutiqueComponent implements OnInit {
 
   ajoutProduitAuPanier(id_produit: any, quantite: any) {
     if (this.service.isConnected()) {                                                     //Vérifie si on est bien connecté
-      this.http.get('http://localhost:8289/panier/produit/' + id_produit).subscribe({
+      this.http.get('http://localhost:8289/panier/produit/' + id_produit + '/'+ this.service.getId()).subscribe({
         next: (data) => {
           if (Object.values(data).map(item => item.id).pop() != undefined) {
             this.id = Object.values(data).map(item => item.id).pop()
@@ -51,7 +51,11 @@ export class BoutiqueComponent implements OnInit {
               "quantite": quantite,
               "produits": {
                 "id": id_produit
+              },
+              "user": {
+                "id": this.service.getId()
               }
+              
             }).subscribe({
               next: (data) => {
                 this.produit = data;
@@ -66,6 +70,9 @@ export class BoutiqueComponent implements OnInit {
               "quantite": quantite,
               "produits": {
                 "id": id_produit
+              },
+              "user": {
+                "id": this.service.getId()
               }
             }).subscribe({
               next: (data) => {
@@ -87,6 +94,9 @@ export class BoutiqueComponent implements OnInit {
 
     localStorage.removeItem('id')
   }
+
+
+
 
 
 

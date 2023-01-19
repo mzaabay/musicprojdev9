@@ -81,5 +81,9 @@ export class UtilityService {
 
   
 
+  goToPanier() {
+    this.route.navigate(['/login/panier']);
+  }
+
 
 }
