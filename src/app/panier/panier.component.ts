@@ -56,6 +56,7 @@ export class PanierComponent implements OnInit {
     ).subscribe({
       next: (data) => {
         this.produit = data;
+        this.msg = "Produit supprimé"
         this.ngOnInit();
 
 
@@ -70,6 +71,7 @@ export class PanierComponent implements OnInit {
     ).subscribe({
       next: (data) => {
         this.evenement = data;
+        this.msg = "Évènement supprimé"
         this.ngOnInit();
 
 
@@ -101,6 +103,7 @@ export class PanierComponent implements OnInit {
           }).subscribe({
             next: (data) => {
               this.produit = data;
+              this.msg = "Quantité modifiée"
               this.ngOnInit();
             },
             error: (err) => { console.log(err) }

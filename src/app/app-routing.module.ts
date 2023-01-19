@@ -23,7 +23,7 @@ const routes: Routes = [
   { component: HomeComponent, path: 'home' },
   { component: RegisterComponent, path: 'register' },
   { component: MdpComponent, path: 'mdp' },
-  { component: PageEvenementsComponent, path: 'evenements/page' }
+  { component: PageEvenementsComponent, path: 'evenements/page' },
 ];
 
 @NgModule({

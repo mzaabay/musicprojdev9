@@ -2,6 +2,8 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user',
@@ -17,7 +19,9 @@ export class UserComponent implements OnInit {
 
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
 
-
+  submitForm(form: NgForm) {
+    console.log(form.value);
+  }
   ngOnInit(): void {
     this.editmode = true;
 
