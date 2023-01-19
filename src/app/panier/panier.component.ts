@@ -16,8 +16,10 @@ export class PanierComponent implements OnInit {
   event: any
   msg: any
   id: any;
+  commande: any;
   constructor(private http: HttpClient, private route: Router, public service: UtilityService) { }
 
+  
   ngOnInit(): void {
     this.http.get('http://localhost:8289/panier').subscribe({
       next: (data) => { this.panier = data },
@@ -157,6 +159,24 @@ export class PanierComponent implements OnInit {
 
     localStorage.removeItem('id')
 
+  }
+
+
+  creationCommande(prenom: any, nom: any, adresse_livraison: any) {
+    this.http.put('http://localhost:8289/commande/999', {
+              "id": 999,
+							"adresse_livraison": adresse_livraison,
+              "nom": nom,
+              "prenom": prenom,
+              "user": {
+                "id": 1 }
+    }).subscribe({
+      next: (data) => {
+        this.commande = data;
+        this.msg = 'Commande validée';
+      },
+      error: (err) => { console.log(err) }
+    });
   }
 
 
