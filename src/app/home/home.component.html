@@ -30,17 +30,33 @@
                     &#9834;
                 </div>
 
-
-
                 <!-- Buttons -->
-                <div class="mx-n2" style="text-align: center;">
-                    <a routerLink="/login" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
-                        Connexion
-                    </a>
-                    <a routerLink="/register" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
-                        Inscription
-                    </a>
+                <div *ngIf="!service.isConnected()">
+                    <div class="mx-n2" style="text-align: center;">
+                        <a routerLink="/login" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                            Connexion
+                        </a>
+                        <a routerLink="/register" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Inscription
+                        </a>
+                    </div>
                 </div>
+                <div *ngIf="service.isConnected()">
+                    <div class="mx-n3" style="text-align: center;">
+                        <a routerLink="/evenements" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                            Évènements
+                        </a>
+                        <a routerLink="/playlists" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Playlist
+                        </a>
+                        <a routerLink="/boutique" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Boutique
+                        </a>
+                    </div>
+
+                </div>
+
+
 
             </div>
         </div>
