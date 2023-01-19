@@ -86,7 +86,7 @@ export class PanierComponent implements OnInit {
 
   modifQuantite(id_produit: any, quantite: any) {
     if (this.service.isConnected()) {                                                     //Vérifie si on est bien connecté
-      this.http.get('http://localhost:8289/panier/produit/' + id_produit).subscribe({
+      this.http.get('http://localhost:8289/panier/produit/' + id_produit + '/'+ this.service.getId()).subscribe({
         next: (data) => {
           this.id = Object.values(data).map(item => item.id).pop()
           this.http.put('http://localhost:8289/panier/' + this.id, {
@@ -94,6 +94,9 @@ export class PanierComponent implements OnInit {
             "quantite": quantite,
             "produits": {
               "id": id_produit
+            },
+            "user": {
+              "id": this.service.getId()
             }
           }).subscribe({
             next: (data) => {
