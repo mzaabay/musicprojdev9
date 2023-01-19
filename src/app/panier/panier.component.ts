@@ -11,8 +11,9 @@ import { UtilityService } from '../utility.service';
 export class PanierComponent implements OnInit {
   @ViewChild('quantity') public quantity: any
   panier: any;
-  evenement: any
+  billeterie: any
   produit: any
+  event: any
   msg: any
   id: any;
   constructor(private http: HttpClient, private route: Router, public service: UtilityService) { }
@@ -24,7 +25,7 @@ export class PanierComponent implements OnInit {
     });
 
     this.http.get('http://localhost:8289/billeterie').subscribe({
-      next: (data) => { this.evenement = data },
+      next: (data) => { this.billeterie = data },
       error: (err) => { console.log(err) }
     });
   }
@@ -42,8 +43,8 @@ export class PanierComponent implements OnInit {
 
   coutEvenement(): any {
     let total = 0;
-    for (let i = 0; i < this.evenement.length; i++) {
-      total += this.evenement[i].evenements.prix;
+    for (let i = 0; i < this.billeterie.length; i++) {
+      total += this.billeterie[i].evenement.prix * this.billeterie[i].quantite;
     }
     return total
 
@@ -70,7 +71,7 @@ export class PanierComponent implements OnInit {
     this.http.delete('http://localhost:8289/billeterie/delete/' + id_evenement, {}
     ).subscribe({
       next: (data) => {
-        this.evenement = data;
+        this.event = data;
         this.msg = "Évènement supprimé"
         this.ngOnInit();
 
@@ -86,9 +87,9 @@ export class PanierComponent implements OnInit {
 
 
 
-  modifQuantite(id_produit: any, quantite: any) {
+  modifQuantiteProduit(id_produit: any, quantite: any) {
     if (this.service.isConnected()) {                                                     //Vérifie si on est bien connecté
-      this.http.get('http://localhost:8289/panier/produit/' + id_produit + '/'+ this.service.getId()).subscribe({
+      this.http.get('http://localhost:8289/panier/produit/' + id_produit + '/' + this.service.getId()).subscribe({
         next: (data) => {
           this.id = Object.values(data).map(item => item.id).pop()
           this.http.put('http://localhost:8289/panier/' + this.id, {
@@ -103,6 +104,42 @@ export class PanierComponent implements OnInit {
           }).subscribe({
             next: (data) => {
               this.produit = data;
+              this.msg = "Quantité modifiée"
+              this.ngOnInit();
+            },
+            error: (err) => { console.log(err) }
+          });
+        },
+        error: (err) => { console.log(err) }
+      });
+    }
+    else {
+      this.msg = 'veuillez vous connecter';
+    }
+
+
+
+    localStorage.removeItem('id')
+
+  }
+
+  modifQuantiteEvenement(id_evenement: any, quantite: any) {
+    if (this.service.isConnected()) {                                                     //Vérifie si on est bien connecté
+      this.http.get('http://localhost:8289/billeterie/evenement/' + id_evenement + '/' + this.service.getId()).subscribe({
+        next: (data) => {
+          this.id = Object.values(data).map(item => item.id).pop()
+          this.http.put('http://localhost:8289/billeterie/' + this.id, {
+            "id": this.id,
+            "quantite": quantite,
+            "evenement": {
+              "id": id_evenement
+            },
+            "user": {
+              "id": this.service.getId()
+            }
+          }).subscribe({
+            next: (data) => {
+              this.event = data;
               this.msg = "Quantité modifiée"
               this.ngOnInit();
             },

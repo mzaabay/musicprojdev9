@@ -75,9 +75,12 @@ body {
 
 
 .mb-3 {
-    text-shadow: 2px 2px rgb(70, 235, 48)
+
+    text-shadow: 1px 1px 2px black, 0 0 1em green, 0 0 0.2em green;
+    font-size: 200%;
 }
 
 .mb-4 {
-    text-shadow: 2px 2px rgb(27, 148, 5)
+    text-shadow: 1px 1px 2px black, 0 0 1em green, 0 0 0.2em green;
+    font-size: 200%;
 }
