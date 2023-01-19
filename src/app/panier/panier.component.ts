@@ -13,7 +13,6 @@ export class PanierComponent implements OnInit {
   panier: any;
   billeterie: any
   produit: any
-  event: any
   msg: any
   id: any;
   commande: any;
@@ -27,7 +26,7 @@ export class PanierComponent implements OnInit {
     });
 
     this.http.get('http://localhost:8289/billeterie/user/' + this.service.getId()).subscribe({
-      next: (data) => { this.evenement = data },
+      next: (data) => { this.billeterie = data },
       error: (err) => { console.log(err) }
     });
   }
@@ -73,7 +72,7 @@ export class PanierComponent implements OnInit {
     this.http.delete('http://localhost:8289/billeterie/delete/' + id_evenement, {}
     ).subscribe({
       next: (data) => {
-        this.event = data;
+        this.billeterie = data;
         this.msg = "Évènement supprimé"
         this.ngOnInit();
 
@@ -141,7 +140,7 @@ export class PanierComponent implements OnInit {
             }
           }).subscribe({
             next: (data) => {
-              this.event = data;
+              this.billeterie = data;
               this.msg = "Quantité modifiée"
               this.ngOnInit();
             },
