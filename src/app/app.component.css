@@ -1,4 +1,9 @@
-.Header {
-    font-family: Arial, sans-serif;
-    color: rgb(21, 199, 1);
+.nav-item {
+    margin-right: 2em;
+}
+
+.nav-link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: aqua;
 }
