@@ -20,12 +20,12 @@ export class PanierComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.http.get('http://localhost:8289/panier').subscribe({
+    this.http.get('http://localhost:8289/panier/user/'+ this.service.getId()).subscribe({
       next: (data) => { this.panier = data },
       error: (err) => { console.log(err) }
     });
 
-    this.http.get('http://localhost:8289/billeterie').subscribe({
+    this.http.get('http://localhost:8289/billeterie/user/' + this.service.getId()).subscribe({
       next: (data) => { this.evenement = data },
       error: (err) => { console.log(err) }
     });
