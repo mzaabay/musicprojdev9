@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody *ngFor="let item of panier">
-                <tr>
+                <tr *ngIf="item.user.id == this.service.getId()">
                     <img src="{{ item.produits.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
                         style="width: 100px; height: 67px;" />
                     <td>{{ item.produits.designation }}</td>
