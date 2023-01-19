@@ -48,7 +48,8 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
       { path: 'home', component: HomeComponent },
     ])
     ,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+
 
   ],
   providers: [],

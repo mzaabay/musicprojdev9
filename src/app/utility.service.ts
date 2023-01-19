@@ -79,5 +79,7 @@ export class UtilityService {
     this.user.avatar = img;
   }
 
+  
+
 
 }
