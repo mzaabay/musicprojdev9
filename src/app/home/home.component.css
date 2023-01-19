@@ -72,3 +72,12 @@ body {
         opacity: 0;
     }
 }
+
+
+.mb-3 {
+    text-shadow: 2px 2px rgb(70, 235, 48)
+}
+
+.mb-4 {
+    text-shadow: 2px 2px rgb(27, 148, 5)
+}
