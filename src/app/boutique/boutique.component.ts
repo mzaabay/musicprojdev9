@@ -101,6 +101,9 @@ export class BoutiqueComponent implements OnInit {
 
 
 
+
+
+
   // pour la barre de recherche -->
   searchText: any;
 }
