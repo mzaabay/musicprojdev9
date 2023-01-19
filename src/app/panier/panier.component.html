@@ -28,11 +28,12 @@
                         </select></td>
 
                     <td><button class="btn btn-outline-info btn-sm"
-                            (click)="modifQuantite(item.produits.id, quantity.value)" data-toggle="modal" data-target="#pop-up">Modifier la quantite</button>
+                            (click)="modifQuantiteProduit(item.produits.id, quantity.value)" data-toggle="modal"
+                            data-target="#pop-up">Modifier la quantite</button>
                     </td>
 
-                    <td><button class="btn btn-outline-danger btn-sm"
-                            (click)="suppressionProduitDuPanier(item.id)" data-toggle="modal" data-target="#pop-up">Supprimer</button>
+                    <td><button class="btn btn-outline-danger btn-sm" (click)="suppressionProduitDuPanier(item.id)"
+                            data-toggle="modal" data-target="#pop-up">Supprimer</button>
                     </td>
 
 
@@ -55,21 +56,36 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th></th>
-                    <th>Prix</th>
+                    <th>Évènement</th>
                     <th>Date</th>
+                    <th>Prix</th>
+                    <th>Quantité/th>
                 </tr>
             </thead>
-            <tbody *ngFor="let i of evenement">
-                <tr>
-                    <img class="card-img-top" src="{{i.evenements.image_mini}}" alt="Card image cap"
+            <tbody *ngFor="let i of billeterie">
+                <tr *ngIf="i.user.id == this.service.getId()">
+                    <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap"
                         style="width: 100px; height: 67px;">
-                    <td>{{ i.evenements.nom }}</td>
-                    <td>{{ i.evenements.prix }} €</td>
-                    <td>{{ i.evenements.date }}</td>
+                    <td>{{ i.evenement.nom }}</td>
+                    <td>{{ i.evenement.date }} €</td>
+                    <td>{{ i.evenement.prix }}</td>
+                    <td>{{ i.quantite }} </td>
 
+                    <td><select #quantity id="quantity" name="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
 
-                    <td><button (click)="suppressionEvenementDuPanier(i.id)" data-toggle="modal" data-target="#pop-up">Supprimer du
+                    <td><button class="btn btn-outline-info btn-sm"
+                            (click)="modifQuantiteEvenement(i.evenement.id, quantity.value)" data-toggle="modal"
+                            data-target="#pop-up">Modifier la quantite</button>
+                    </td>
+
+                    <td><button (click)="suppressionEvenementDuPanier(i.id)" data-toggle="modal"
+                            data-target="#pop-up">Supprimer du
                             panier</button>
                     </td>
 
@@ -79,7 +95,7 @@
         <p class="font-weight-bold">Sous-total évènements : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
         <br>
 
-        
+
 
 
         <!-- Bouton Collapse pour passer la commande-->
@@ -89,7 +105,7 @@
             <button type="button" class="btn btn-outline-success" data-toggle="collapse"
                 data-target="#evenement">Commander</button>
             <div id="evenement" class="collapse">
-                <form #fCommande="ngForm"   (ngSubmit)="creationCommande('', '', '')" >
+                <form #fCommande="ngForm" (ngSubmit)="creationCommande('', '', '')">
                     <div class="form-group">
                         <label for="Prenom">Prénom</label>
                         <input type="text" class="form-control" id="Prenom" placeholder="Entrez votre prénom">
@@ -125,19 +141,19 @@
 
 <!-- Pop-up quand on modifie la quantite -->
 <div class="modal fade" id="pop-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    
+
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-footer">
-            <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 
-  </div>
+</div>
