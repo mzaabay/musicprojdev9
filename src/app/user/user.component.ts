@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
       next: (data) => {
         this.user = data;
         console.log(this.user.id)
-        if (this.user.id != null) {
+        if (this.user.id = null) {
           this.mediaUrl = this.user.avatar;
         }
         else {
