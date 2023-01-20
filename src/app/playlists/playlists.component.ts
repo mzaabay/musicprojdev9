@@ -79,18 +79,4 @@ export class PlaylistsComponent implements OnInit {
       error: (err) => { console.log(err) }
     });
   }
-  p : any;
-  testSiPlaylistContient(id_morceau : any): boolean{
-    for (let p in this.playlist){
-      if(id_morceau == this.p.morceau.id){
-        console.log("true");
-        return true;
-      }else{
-        console.log("false")
-        return false;
-      }
-    }
-    console.log("hors boucle for");
-    return false;
-  }
 }
