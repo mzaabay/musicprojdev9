@@ -42,7 +42,7 @@
                         <img [src]="mediaUrl" *ngIf="mediaUrl" name="avatar" class="d-block rounded" height="100"
                             width="100" id="uploadedAvatar">
                         <div class="button-wrapper">
-                            <label for="upload" class="btn btn-primary me-1 mb-2" tabindex="0">
+                            <label for="upload" class="btn btn btn-dark btn-sm me-1 mb-2" tabindex="0">
                                 <span class="d-none d-sm-block">Téléchargez une image</span>
                                 <i class="bx bx-upload d-block d-sm-none"></i>
                                 <input type="file" id="upload" class="account-file-input" hidden=""
@@ -99,7 +99,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-12">
-                            <button (click)="toggleDiv()" class="btn btn-info " target="__blank">Edit</button>
+                            <button (click)="toggleDiv()" class="btn btn-dark btn-sm" target="__blank">Modifier</button>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
 
                         </div>
                         <div class="mt-2">
-                            <button (click)="toggleDiv()" type="submit" class="btn btn-primary me-2"
+                            <button (click)="toggleDiv()" type="submit" class="btn btn btn-dark btn-sm me-2"
                                 [disabled]="!form.valid">Sauvegarder</button>
                             <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                             <div *ngIf="!form.valid" class="alert alert-danger">
@@ -189,7 +189,7 @@
                     </div>
                     <button type="submit" class="btn btn-danger deactivate-account">Supprimer mon compte</button>
                 </form>
-                <br>
+                <p></p>
 
             </div>
             <br>
