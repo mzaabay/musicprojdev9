@@ -5,7 +5,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { MessageComponent } from './message/message.component';
 import { PanierComponent } from './panier/panier.component';
-import { PlaylistsComponent } from './playlists/playlists.component';
+import PlaylistsComponent from './playlists/playlists.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';

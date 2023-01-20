@@ -1,6 +1,4 @@
 <body>
-
-
     <div class="text-center">
         <br><br>
         <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
@@ -16,25 +14,26 @@
                             <th>Auteur</th>
                             <th>Genre</th>
                             <th>Delete</th>
-                            <th>Lecteur pas trop cassé</th>
+                            <th>Lecteur audio</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
                         <tr *ngIf="item.user.id == this.service.getId()">
-                            <td>{{ item.morceau.album }}</td>
-                            <td>{{ item.morceau.nom }}</td>
-                            <td>{{ item.morceau.auteur }}</td>
-                            <td>{{ item.morceau.genre }}</td>
-                            <td><button (click)="supprimeMorceau(item.id)" type="button"
+                            <td class="align-middle">{{ item.morceau.album }}</td>
+                            <td class="align-middle">{{ item.morceau.nom }}</td>
+                            <td class="align-middle">{{ item.morceau.auteur }}</td>
+                            <td class="align-middle">{{ item.morceau.genre }}</td>
+                            <td class="align-middle"><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
-                            <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
+                            <td class="align-middle"> <audio #audioPlayer [src]="item.morceau.url" controls
+                                    (ended)="onAudioEnded()"></audio>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <h1>Morceau disponible</h1>
             <table class="table">
                 <thead>
@@ -44,25 +43,26 @@
                         <th>Auteur</th>
                         <th>Genre</th>
                         <th>Add</th>
-                        <th>Lecteur pas trop cassé</th>
+                        <th>Lecteur audio</th>
                         <th>Like</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of morceau">
-                        <td>{{ item.album }}</td>
-                        <td>{{ item.nom }}</td>
-                        <td>{{ item.auteur }}</td>
-                        <td>{{ item.genre }}</td>
-                        <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
+                        <td class="align-middle">{{ item.album }}</td>
+                        <td class="align-middle">{{ item.nom }}</td>
+                        <td class="align-middle">{{ item.auteur }}</td>
+                        <td class="align-middle">{{ item.genre }}</td>
+                        <td class="align-middle"><button (click)="ajoutMorceau(item.id)"
+                                class="btn btn-dark btn-sm ">Add
                                 playlist</button></td>
-                        <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
+                        <td class="align-middle"> <audio #audioPlayer [src]="item.url" controls
+                                (ended)="onAudioEnded()"></audio>
                         </td>
-                        <td><i class="fa-light fa-thumbs-up"></i></td>
-
-                    
+                        <td class="align-middle"><button (click)="ajoutMorceauLike1(item.id)"
+                                class="far fa-thumbs-up">{{
+                                item.like1 }}</button></td>
                     </tr>
-          
                 </tbody>
             </table>
         </div>

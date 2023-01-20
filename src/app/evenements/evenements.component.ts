@@ -13,7 +13,7 @@ export class EvenementsComponent implements OnInit {
   @ViewChild('prix') public prix: any
 
 
-
+  clickedIndex: any;
   events: any;
   constructor(private http: HttpClient, public service: UtilityService, private route: Router) { }
 
