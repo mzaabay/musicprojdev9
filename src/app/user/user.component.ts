@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   mediaUrl: any;
   user: any;
   editmode = true;
+  billeterie: any;
 
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
 
@@ -38,6 +39,11 @@ export class UserComponent implements OnInit {
         }
       }
     })
+
+    this.http.get('http://localhost:8289/billeterie/user/' + this.service.getId()).subscribe({
+      next: (data) => { this.billeterie = data },
+      error: (err) => { console.log(err) }
+    });
 
   }
 
