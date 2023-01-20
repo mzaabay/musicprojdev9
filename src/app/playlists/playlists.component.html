@@ -1,6 +1,4 @@
 <body>
-
-
     <div class="text-center">
         <div class="container-fluid">
             <h1>Playlist</h1>
@@ -13,7 +11,7 @@
                             <th>Auteur</th>
                             <th>Genre</th>
                             <th>Delete</th>
-                            <th>Lecteur pas trop cassé</th>
+                            <th>Lecteur audio</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
@@ -25,15 +23,13 @@
                             <td><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
                             <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
-                                <button (click)="playAudio()">Play</button>
-                                <button (click)="pauseAudio()">Pause</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <h1>Morceau disponible</h1>
             <table class="table">
                 <thead>
@@ -43,7 +39,8 @@
                         <th>Auteur</th>
                         <th>Genre</th>
                         <th>Add</th>
-                        <th>Lecteur pas trop cassé</th>
+                        <th>Lecteur audio</th>
+                        <th>Like</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let item of morceau">
@@ -55,9 +52,9 @@
                         <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
                                 playlist</button></td>
                         <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
-                            <button (click)="playAudio()">Play</button>
-                            <button (click)="pauseAudio()">Pause</button>
                         </td>
+                        <td><button (click)="ajoutMorceauLike1(item.id)" class="far fa-thumbs-up">{{
+                                item.like1 }}</button></td>
                     </tr>
                 </tbody>
             </table>

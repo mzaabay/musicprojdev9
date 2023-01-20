@@ -13,3 +13,11 @@ th,
 td {
     border: 1px solid rgb(0, 0, 0);
 }
+
+h1 {
+    margin-top: 5%;
+}
+
+th {
+    background: #b6946d33
+}

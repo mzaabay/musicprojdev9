@@ -10,7 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
-import { PlaylistsComponent } from './playlists/playlists.component';
+import PlaylistsComponent from './playlists/playlists.component';
 import { PanierComponent } from './panier/panier.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
