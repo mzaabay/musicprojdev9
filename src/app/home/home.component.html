@@ -19,8 +19,7 @@
                     &#9833;
                 </div>
 
-                <h1 class="mb-3">Let the music play</h1>
-                <h5 class="mb-4">Avec CHORUS, partagez et vivez la musique.</h5>
+                <h5 class="mb-4">Avec CHORUS, partagez <br>et vivez la musique.</h5>
 
 
                 <div class="noot-3">
@@ -33,23 +32,24 @@
                 <!-- Buttons -->
                 <div *ngIf="!service.isConnected()">
                     <div class="mx-n2" style="text-align: center;">
-                        <a routerLink="/login" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                        <a routerLink="/login" class="btn btn-lg m-2 button_chorus_vert shadow-sm mx-2 px-lg-8">
                             Connexion
                         </a>
-                        <a routerLink="/register" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                        <a routerLink="/register"
+                            class="btn btn-lg text-dark m-2 button_chorus_jaune text-dark shadow-sm mx-2 px-lg-8">
                             Inscription
                         </a>
                     </div>
                 </div>
                 <div *ngIf="service.isConnected()">
                     <div class="mx-n3" style="text-align: center;">
-                        <a routerLink="/evenements" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                        <a routerLink="/evenements" class="btn btn-lg m-2 button_chorus_vert shadow-sm mx-2 px-lg-8">
                             Évènements
                         </a>
-                        <a routerLink="/playlists" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                        <a routerLink="/playlists" class="btn btn-lg text-dark m-2 button_chorus_vclair px-lg-8">
                             Playlist
                         </a>
-                        <a routerLink="/boutique" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                        <a routerLink="/boutique" class="btn btn-lg text-dark m-2 button_chorus_jaune mx-2 px-lg-8">
                             Boutique
                         </a>
                     </div>

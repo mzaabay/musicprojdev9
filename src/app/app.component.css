@@ -2,14 +2,18 @@
     margin-right: 2em;
 }
 
-.nav-link {
-    font-family: 'Open Sans', sans-serif;
+a.nav-link {
+    font-family: 'Roboto Mono', monospace;
+
     font-size: 1.2em;
     color: aqua;
 }
 
+
+
 h1 {
     color: #555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font: bold 12px 'helvetica neue', helvetica, arial, sans-serif;
     left: 0;
     margin: 20px 0 0 0;
@@ -29,7 +33,7 @@ h1 {
 }
 
 .bar {
-    background: #f00;
+    background: #528E5D;
     bottom: 1px;
     height: 3px;
     position: absolute;

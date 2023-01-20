@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: white;
 }
 
@@ -76,11 +76,26 @@ body {
 
 .mb-3 {
 
-    text-shadow: 1px 1px 2px black, 0 0 1em green, 0 0 0.2em green;
+    text-shadow: 1px 1px 2px black, 0 0 1em rgba(11, 11, 11, 0.995), 0 0 0.2em rgb(0, 0, 0);
     font-size: 200%;
 }
 
 .mb-4 {
-    text-shadow: 1px 1px 2px black, 0 0 1em green, 0 0 0.2em green;
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(0, 0, 0);
     font-size: 200%;
+}
+
+.button_chorus_vert {
+
+    background-color: #528E5D;
+}
+
+.button_chorus_jaune {
+
+    background-color: #FEDF87;
+}
+
+.button_chorus_vclair {
+
+    background-color: #b0be7a;
 }

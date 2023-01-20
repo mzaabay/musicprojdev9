@@ -1,6 +1,4 @@
 <body>
-
-
     <div class="text-center">
         <br><br>
         <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
@@ -16,7 +14,7 @@
                             <th>Auteur</th>
                             <th>Genre</th>
                             <th>Delete</th>
-                            <th>Lecteur pas trop cassé</th>
+                            <th>Lecteur audio</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
@@ -34,7 +32,7 @@
                 </table>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <h1>Morceau disponible</h1>
             <table class="table">
                 <thead>
@@ -44,7 +42,7 @@
                         <th>Auteur</th>
                         <th>Genre</th>
                         <th>Add</th>
-                        <th>Lecteur pas trop cassé</th>
+                        <th>Lecteur audio</th>
                         <th>Like</th>
                     </tr>
                 </thead>
@@ -58,11 +56,9 @@
                                 playlist</button></td>
                         <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
                         </td>
-                        <td><i class="fa-light fa-thumbs-up"></i></td>
-
-                    
+                        <td><button (click)="ajoutMorceauLike1(item.id)" class="far fa-thumbs-up">{{
+                                item.like1 }}</button></td>
                     </tr>
-          
                 </tbody>
             </table>
         </div>
