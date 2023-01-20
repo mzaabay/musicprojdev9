@@ -29,9 +29,9 @@ export class UserComponent implements OnInit {
     this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
       next: (data) => {
         this.user = data;
-        console.log(this.user.id)
-        if (this.user.id = null) {
-          this.mediaUrl = this.user.avatar;
+
+        if (this.user.avatar != null) {
+          this.mediaUrl = window.atob(this.user.avatar);
         }
         else {
           this.mediaUrl = "/assets/images/avatar.png"
@@ -87,6 +87,7 @@ export class UserComponent implements OnInit {
           // console.log(this.user.avatar);
         }
       })
+
 
     }
 
