@@ -2,13 +2,15 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-playlists',
   templateUrl: './playlists.component.html',
   styleUrls: ['./playlists.component.css']
 })
-export class PlaylistsComponent implements OnInit {
+export default class PlaylistsComponent implements OnInit {
   morceau: any;
   playlist: any;
 
@@ -78,5 +80,14 @@ export class PlaylistsComponent implements OnInit {
       },
       error: (err) => { console.log(err) }
     });
+  }
+  ajoutMorceauLike1(id_morceau: any) {
+    this.morceau.like1 += 1;
+    return this.http.put('http://localhost:8289/morceau/like1/' + id_morceau, this.morceau), {
+
+      "id": this.morceau.id,
+      "like1": this.morceau.like1
+
+    }
   }
 }
