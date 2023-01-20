@@ -30,8 +30,10 @@ export class UserComponent implements OnInit {
       next: (data) => {
         this.user = data;
         console.log(this.user.id)
-        if (this.user.id = null) {
-          this.mediaUrl = this.user.avatar;
+        console.log(window.atob(this.user.avatar))
+        if (this.user.id != null) {
+          this.mediaUrl = window.atob(this.user.avatar);
+          this.service.setAvatar(this.mediaUrl)
         }
         else {
           this.mediaUrl = "/assets/images/avatar.png"

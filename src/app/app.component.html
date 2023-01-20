@@ -80,7 +80,7 @@
         <div class="d-flex" *ngIf="service.isConnected()">
           <li class="nav-item me-3 me-lg-1">
             <a class="nav-link d-sm-flex align-items-sm-center" routerLink="user">
-              <img src="./assets/images/male-avatarg.png" class="rounded-circle" height="30" alt="" loading="lazy" />
+              <img [src]="mediaUrl" *ngIf="mediaUrl" class="rounded-circle" height="30" alt="" loading="lazy" />
               <strong class="d-none d-sm-block ms-1"> {{ service.getLogin() }}</strong>
             </a>
           </li>
