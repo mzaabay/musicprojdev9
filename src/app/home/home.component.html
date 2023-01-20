@@ -1,36 +1,63 @@
-<div class="py-24">
-    <div>
-        <div class="row align-items-center">
-            <div>
-                <!-- Emoji -->
-                <!-- Heading -->
-                <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy"
-                    style="margin-top: 2px;" />
-                <!-- Text -->
-                <p class="lead mb-10" style="text-align: center;">
-                    Avec CHORUS, partagez et vivez la musique.
-                </p>
+<!-- --------------------------------------------------------------- -->
+<!-- PARTIE AVEC LE BACKGROUND QUI MARCHE -->
+
+<div class="bg-image d-flex justify-content-center align-items-center" style="
+    background-image: url('./assets/images/DJSPIN.jpg');
+    background-size: cover;background-repeat:no-repeat;height: 100vh;
+  ">
+
+    <div class="container d-flex align-items-center justify-content-center text-center h-100">
+        <div class="text-white">
+
+            <img src="./assets/images/logo-removebg-preview.png" height="180" alt="" loading="lazy"
+                style="margin-bottom: 40px;" />
+            <div class="muzieknootjes">
+                <div class="noot-1">
+                    &#9835; &#9833;
+                </div>
+                <div class="noot-2">
+                    &#9833;
+                </div>
+
+                <h1 class="mb-3">Let the music play</h1>
+                <h5 class="mb-4">Avec CHORUS, partagez et vivez la musique.</h5>
+
+
+                <div class="noot-3">
+                    &#9839; &#9834;
+                </div>
+                <div class="noot-4">
+                    &#9834;
+                </div>
+
                 <!-- Buttons -->
-                <div class="mx-n2" style="text-align: center;">
-                    <a routerLink="/login" class="btn btn-lg btn-dark shadow-sm mx-2 px-lg-8">
-                        Connexion
-                    </a>
-                    <a routerLink="/register" class="btn btn-lg btn-neutral mx-2 px-lg-8">
-                        Inscription
-                    </a>
+                <div *ngIf="!service.isConnected()">
+                    <div class="mx-n2" style="text-align: center;">
+                        <a routerLink="/login" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                            Connexion
+                        </a>
+                        <a routerLink="/register" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Inscription
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-8">
-                <div class="w-xl-12/8 position-relative">
-                    <!-- Decorations -->
-                    <span
-                        class="d-none d-lg-block position-absolute top-0 start-0 transform translate-x-n32 translate-y-n16 w-2/3 h-2/3 bg-warning opacity-20 rounded-circle filter blur-50"></span>
-                    <span
-                        class="d-none d-xl-block position-absolute bottom-0 end-0 transform translate-x-16 translate-y-16 w-32 h-32 bg-warning opacity-60 rounded-circle filter blur-50"></span>
-                    <!-- Image -->
-                    <img alt="..." src="./assets/images/DJSPIN.jpg" width="120%" loading="lazy" style="margin-top: 2px;"
-                        class="shadow-4 rounded-4 position-relative overlap-10" />
+                <div *ngIf="service.isConnected()">
+                    <div class="mx-n3" style="text-align: center;">
+                        <a routerLink="/evenements" class="btn btn-lg m-2 btn-dark shadow-sm mx-2 px-lg-8">
+                            Évènements
+                        </a>
+                        <a routerLink="/playlists" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Playlist
+                        </a>
+                        <a routerLink="/boutique" class="btn btn-lg m-2 btn-dark mx-2 px-lg-8">
+                            Boutique
+                        </a>
+                    </div>
+
                 </div>
+
+
+
             </div>
         </div>
     </div>

@@ -4,6 +4,18 @@
     <div class="container-fluid justify-content-between">
       <!-- Left elements -->
       <div class="d-flex">
+        <div id="bars justify-content-between"> 
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
         <!-- Brand -->
         <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="">
           <!--TODO REVOIR LE LOGO ET LE LIEN VERS HOME-->
@@ -11,30 +23,36 @@
             style="margin-top: 2px;" />
           <img src="./assets/images/slogan-removebg-preview.png" height="20" alt="" loading="lazy"
             style="margin-top: 2px;" />
+
         </a>
+
+
       </div>
+
+
 
       <!-- Center elements / MENU -->
       <ul class="navbar-nav flex-row d-none d-md-flex display-5">
-        <li class="nav-item me-3 me-lg-1 "> <!-- TODO GERER LES ACTIVE ICONS-->
+        <li class="nav-item me-3 me-lg-1 " [ngClass]="{'active': isCurrentPage('home')}">
+          <!-- TODO GERER LES ACTIVE ICONS-->
           <a class="nav-link" routerLink="home">Accueil</a>
         </li>
 
-        <li class="nav-item me-3 me-lg-1">
+        <li class="nav-item me-3 me-lg-1" [ngClass]="{'active': isCurrentPage('evenements')}">
           <a class="nav-link" routerLink="evenements">
             <!-- <i class="fas fa-calendar fa-lg" aria-hidden="true"></i>-->
             Évènements
           </a>
         </li>
 
-        <li class="nav-item me-3 me-lg-1">
+        <li class="nav-item me-3 me-lg-1" [ngClass]="{'active': isCurrentPage('playlists')}">
           <a class="nav-link" routerLink="playlists">
             <!--   <span><i class="fas fa-play fa-lg"></i></span>          -->
             Playlist
           </a>
         </li>
 
-        <li class="nav-item me-3 me-lg-1">
+        <li class="nav-item me-3 me-lg-1" [ngClass]="{'active': isCurrentPage('boutique')}">
           <a class="nav-link" routerLink="boutique">
             <!-- <i class="fas fa-shopping-bag fa-lg"></i>-->
             Boutique

@@ -20,7 +20,7 @@
               "zone.js"
             ],
             "allowedCommonJsDependencies": [
-              "lodash"
+              "sockjs-client"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [

@@ -79,5 +79,11 @@ export class UtilityService {
     this.user.avatar = img;
   }
 
+  
+
+  goToPanier() {
+    this.route.navigate(['/login/panier']);
+  }
+
 
 }
