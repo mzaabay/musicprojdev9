@@ -13,15 +13,19 @@ export class PageEvenementsComponent {
 
   event: any;
 
+  id: any;
 
-  RedirectToPageEvenement(id_evenement: any) {
-    this.http.get('http://localhost:8289/evenement/' + id_evenement).subscribe({
+  ngOnInit(): void {
+    this.http.get('http://localhost:8289/evenement/' + this.id).subscribe({
       next: (data) => { this.event = data },
       error: (err) => { console.log(err) }
 
     });
 
+
+
   }
+
 
 
 }

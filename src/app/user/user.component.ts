@@ -2,6 +2,8 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from '../utility.service';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user',
@@ -13,16 +15,22 @@ export class UserComponent implements OnInit {
   imagePath: any;
   mediaUrl: any;
   user: any;
-  editmode = false;
+  editmode = true;
 
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
+
+  submitForm(form: NgForm) {
+    console.log(form.value);
+  }
   ngOnInit(): void {
-    this.editmode = false;
+    this.editmode = true;
+
     this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
       next: (data) => {
-
-        if (this.service.getAvatar() != null) {
-          this.mediaUrl = data;
+        this.user = data;
+        console.log(this.user.id)
+        if (this.user.id = null) {
+          this.mediaUrl = this.user.avatar;
         }
         else {
           this.mediaUrl = "/assets/images/avatar.png"
@@ -53,7 +61,7 @@ export class UserComponent implements OnInit {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.mediaUrl = reader.result;
-      console.log(this.mediaUrl)
+      this.service.setAvatar(this.mediaUrl);
       this.http.patch('http://localhost:8289/user/' + this.service.getId(),
         {
           "login": this.service.getLogin(),
@@ -63,11 +71,20 @@ export class UserComponent implements OnInit {
           "mail": this.service.getMail(),
           "adresse": this.service.getAdresse(),
           "code_Postale": this.service.getcode_postale(),
-          "avatar": this.mediaUrl
+          "avatar": window.btoa(this.mediaUrl)
         }
-      ).subscribe()
+
+
+      ).subscribe({
+        next: (data) => {
+          this.user = data;
+          // console.log(this.user.avatar);
+        }
+      })
 
     }
+
+
 
   }
 

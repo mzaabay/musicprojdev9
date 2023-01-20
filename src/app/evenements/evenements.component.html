@@ -66,7 +66,7 @@
         <p class="text-danger text-center"> {{ msg }} </p>
         <div class="row">
 
-            <div class="col-3" *ngFor="let m of events | filter:searchText">
+            <div class="col-4" *ngFor="let m of events | filter:searchText">
                 <div class="card card-cascade narrower">
 
                     <!-- Card image -->
@@ -83,15 +83,33 @@
                         <!-- Label -->
                         <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> {{m.date}}</h5>
                         <!-- Title -->
-                        <h4 class="font-weight-bold card-title"><a class="text-dark"
-                                routerLink="/evenements/page">{{m.nom}}</a>
+                        <h4 class="font-weight-bold card-title">
+                            <!-- <a class="text-dark" routerLink="/evenements/page"></a>-->
+                            <a (click)="RedirectToPageEvenement(m.id)" class="text-dark">{{m.nom}}</a>
                         </h4>
                         <h6 class="font-weight-bold card-title">{{m.horaire}}</h6>
                         <!-- Text -->
                         <p class="card-text">{{m.resume}}</p>
                         <!-- Button -->
-                        <h6 class="font-weight-bold card-title">{{m.prix}}€ TTC</h6>
-                        <a (click)="ajoutEvenementABilleterie(m.id)" class="btn btn-unique">Ajouter au panier</a>
+                        <h6 class="font-weight-bold card-title">Prix : {{m.prix}}€ TTC</h6>
+                        <div class="text-center">
+                            <label for="quantity">Quantité : </label>
+                            <select #quantity id="quantity" name="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+
+
+                        </div>
+                        <div class="text-center">
+                            <button (click)="ajoutEvenementABilleterie(m.id, quantity.value)"
+                                class="btn btn-dark btn-sm" data-toggle="modal" data-target="#pop-up">Ajouter au
+                                panier</button>
+                        </div>
+
 
 
 
@@ -107,4 +125,24 @@
 
 
     </div>
+    <!-- Pop-up quand on ajoute au panier -->
+    <div class="modal fade" id="pop-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        (click)="service.goToPanier()">Aller vers le panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

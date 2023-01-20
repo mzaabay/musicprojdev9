@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
-
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
@@ -38,7 +36,8 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
     RegisterComponent,
     ProfilComponent,
     MdpComponent,
-    PageEvenementsComponent
+    PageEvenementsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +49,8 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
       { path: 'home', component: HomeComponent },
     ])
     ,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+
 
   ],
   providers: [],

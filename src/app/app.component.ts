@@ -13,11 +13,16 @@ export class AppComponent implements OnInit {
   constructor(private route: Router, public service: UtilityService) { }
 
   ngOnInit(): void {
+    this.service.getAvatar()
+
   }
 
-
+  isCurrentPage(page: string) {
+    return this.route.url === '/' + page;
+  }
 
   // pour la barre de recherche -->
   searchText: any;
 
 }
+
