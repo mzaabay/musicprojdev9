@@ -4,21 +4,26 @@
     <div class="container">
         <h1>Profil utilisateur</h1>
         <p>Bienvenue, {{ user.nom }}</p>
-        <div class="row">
+        <div class="row" *ngFor="let i of billeterie">
             <div class="col-md-12">
                 <h2>Mes événements</h2>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top">
+                            <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">event name</h5>
-                                <p class="card-text">event date</p>
-                                <a href="#" class="btn btn-primary">Voir l'événement</a>
+                                <h5 class="card-title">{{i.evenement.nom}}</h5>
+                                <p class="card-text">{{ i.evenement.date }}</p>
+                                <p class="card-text">{{ i.evenement.resume }}</p>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <p></p>
+                <a routerLink="/evenements" class="btn btn-dark btn-sm">
+                    Voir les événements
+                </a>
             </div>
         </div>
     </div>
@@ -146,7 +151,7 @@
                                     [(ngModel)]="user.code_Postale" required maxlength="6" value="*Obligatoire">
                             </div>
 
-                                <!-- <br>
+                            <!-- <br>
                                 <br> -->
                             <p class="text-danger text-center"> {{ message }} </p>
 

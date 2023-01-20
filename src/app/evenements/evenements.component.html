@@ -29,14 +29,16 @@
             </div>
 
 
-            <div class="carousel-item" *ngFor="let m of events.slice(1)">
-                <div class="view">
-                    <img class="d-block w-100" src="{{m.image_carousel}}" alt="First slide">
-                    <div class="mask rgba-black-light"></div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">{{m.nom}}</h3>
-                    <p>{{m.resume}}</p>
+            <div class="carousel-item" *ngFor="let m of events.slice(1); let i = index">
+                <div *ngIf="i<2">
+                    <div class="view">
+                        <img class="d-block w-100" src="{{m.image_carousel}}" alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">{{m.nom}}</h3>
+                        <p>{{m.resume}}</p>
+                    </div>
                 </div>
             </div>
             <!-- -->
@@ -66,7 +68,7 @@
         <p class="text-danger text-center"> {{ msg }} </p>
         <div class="row">
 
-            <div class="col-4" *ngFor="let m of events | filter:searchText">
+            <div class="col-4" *ngFor="let m of events | filter:searchText; let i = index">
                 <div class="card card-cascade narrower">
 
                     <!-- Card image -->
@@ -108,6 +110,60 @@
                             <button (click)="ajoutEvenementABilleterie(m.id, quantity.value)"
                                 class="btn btn-dark btn-sm" data-toggle="modal" data-target="#pop-up">Ajouter au
                                 panier</button>
+                            <button (click)="clickedIndex = i" class="btn btn-dark btn-sm" data-toggle="modal"
+                                data-target="#eventpop">Plus
+                                d'infos...</button>
+                            <div *ngIf="clickedIndex === i" class="modal fade" id="eventpop" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{m.nom}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-teft">Date : {{m.date}}</p>
+                                            <p></p>
+                                            <p class="text-teft">Horaire : {{m.horaire}}</p>
+                                            <p class="text-teft">Lieu : {{m.lieu.nom}}</p>
+                                            <p></p>
+                                            <p class="text-teft">Description</p>
+                                            <p class="text-justify">{{m.description}}</p>
+                                            <p></p>
+                                            <p class="text-teft">Nombre de places : {{m.places}}</p>
+                                            <p class="text-teft"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark btn-sm"
+                                                data-dismiss="modal">Fermer</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="pop-up" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Fermer</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                (click)="service.goToPanier()">Aller vers le panier</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
 
