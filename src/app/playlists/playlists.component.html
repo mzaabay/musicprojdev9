@@ -13,7 +13,7 @@
                             <th>Nom</th>
                             <th>Auteur</th>
                             <th>Genre</th>
-                            <th>Delete</th>
+                            <th>Supprimer</th>
                             <th>Lecteur audio</th>
                         </tr>
                     </thead>
@@ -24,7 +24,7 @@
                             <td class="align-middle">{{ item.morceau.auteur }}</td>
                             <td class="align-middle">{{ item.morceau.genre }}</td>
                             <td class="align-middle"><button (click)="supprimeMorceau(item.id)" type="button"
-                                    class="btn btn-dark btn-sm">Delete</button></td>
+                                    class="btn btn-dark btn-sm">Supprimer</button></td>
                             <td class="align-middle"> <audio #audioPlayer [src]="item.morceau.url" controls
                                     (ended)="onAudioEnded()"></audio>
                             </td>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <h1>Morceau disponible</h1>
+            <h1>Morceaux disponibles</h1>
             <table class="table">
                 <thead>
                     <tr>
@@ -42,7 +42,7 @@
                         <th>Nom</th>
                         <th>Auteur</th>
                         <th>Genre</th>
-                        <th>Add</th>
+                        <th>Ajouter</th>
                         <th>Lecteur audio</th>
                         <th>Like</th>
                     </tr>
@@ -54,8 +54,8 @@
                         <td class="align-middle">{{ item.auteur }}</td>
                         <td class="align-middle">{{ item.genre }}</td>
                         <td class="align-middle"><button (click)="ajoutMorceau(item.id)"
-                                class="btn btn-dark btn-sm ">Add
-                                playlist</button></td>
+                                class="btn btn-dark btn-sm ">Ajouter
+                            </button></td>
                         <td class="align-middle"> <audio #audioPlayer [src]="item.url" controls
                                 (ended)="onAudioEnded()"></audio>
                         </td>
