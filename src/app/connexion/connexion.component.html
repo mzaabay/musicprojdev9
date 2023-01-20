@@ -1,7 +1,9 @@
-<div>
+<div class="bg-image d-flex justify-content-center align-items-center" style="
+background-image: url('./assets/images/disc.jpg');
+background-size: cover;background-repeat:no-repeat;height: 100vh;">
     <div>
         <div class="mt-5">
-            <div style="margin: auto; width: 40%">
+            <div style="margin: auto; width: 140%">
                 <form #fLogin="ngForm" (ngSubmit)="connexion(fLogin.value)">
 
                     <div class="card p-3 z-depth-3">
@@ -17,7 +19,7 @@
                         <div class="text-center">
                             <span><a routerLink="/mdp">Mot de passe oublié ?</a></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">connexion</button>
+                        <button type="submit" class="btn  btn-block">connexion</button>
                         <br>
                         <p class="text-danger text-center"> {{ msg }} </p>
                         <br>
@@ -26,15 +28,15 @@
                         <div class="text-center">
                             <p>Pas encore inscrit ? <a routerLink="/register">Inscription</a></p>
                             <p>ou rejoint nous à travers:</p>
-                            <button type="button" class="btn btn-secondary btn-floating mx-1">
+                            <button type="button" class="btn  btn-floating mx-1">
                                 <i class="fab fa-facebook-f"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary btn-floating mx-1">
+                            <button type="button" class="btn btn-floating ">
                                 <i class="fab fa-google"></i>
                             </button>
 
-                            <button type="button" class="btn btn-secondary btn-floating mx-1">
+                            <button type="button" class="btn  btn-floating mx-1">
                                 <i class="fab fa-twitter"></i>
                             </button>
                         </div>
