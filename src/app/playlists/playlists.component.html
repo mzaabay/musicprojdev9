@@ -24,7 +24,7 @@
                             <td class="align-middle">{{ item.morceau.auteur }}</td>
                             <td class="align-middle">{{ item.morceau.genre }}</td>
                             <td class="align-middle"><button (click)="supprimeMorceau(item.id)" type="button"
-                                    class="btn btn-secondary btn-sm">Delete</button></td>
+                                    class="btn btn-dark btn-sm">Delete</button></td>
                             <td class="align-middle"> <audio #audioPlayer [src]="item.morceau.url" controls
                                     (ended)="onAudioEnded()"></audio>
                             </td>
