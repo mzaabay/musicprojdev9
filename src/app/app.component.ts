@@ -1,4 +1,3 @@
-import { useAnimation } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -22,7 +21,7 @@ export class AppComponent implements OnInit {
       next: (data) => {
         this.user = data;
 
-        if (this.user.id != null) {
+        if (this.user.avatar != null) {
           this.mediaUrl = window.atob(this.user.avatar);
 
         }
@@ -34,6 +33,8 @@ export class AppComponent implements OnInit {
     })
 
   }
+
+
 
   isCurrentPage(page: string) {
     return this.route.url === '/' + page;
