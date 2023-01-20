@@ -19,13 +19,14 @@
                     </thead>
                     <tbody *ngFor="let item of playlist">
                         <tr *ngIf="item.user.id == this.service.getId()">
-                            <td>{{ item.morceau.album }}</td>
-                            <td>{{ item.morceau.nom }}</td>
-                            <td>{{ item.morceau.auteur }}</td>
-                            <td>{{ item.morceau.genre }}</td>
-                            <td><button (click)="supprimeMorceau(item.id)" type="button"
+                            <td class="align-middle">{{ item.morceau.album }}</td>
+                            <td class="align-middle">{{ item.morceau.nom }}</td>
+                            <td class="align-middle">{{ item.morceau.auteur }}</td>
+                            <td class="align-middle">{{ item.morceau.genre }}</td>
+                            <td class="align-middle"><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
-                            <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
+                            <td class="align-middle"> <audio #audioPlayer [src]="item.morceau.url" controls
+                                    (ended)="onAudioEnded()"></audio>
                             </td>
                         </tr>
                     </tbody>
@@ -48,15 +49,18 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of morceau">
-                        <td>{{ item.album }}</td>
-                        <td>{{ item.nom }}</td>
-                        <td>{{ item.auteur }}</td>
-                        <td>{{ item.genre }}</td>
-                        <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
+                        <td class="align-middle">{{ item.album }}</td>
+                        <td class="align-middle">{{ item.nom }}</td>
+                        <td class="align-middle">{{ item.auteur }}</td>
+                        <td class="align-middle">{{ item.genre }}</td>
+                        <td class="align-middle"><button (click)="ajoutMorceau(item.id)"
+                                class="btn btn-dark btn-sm ">Add
                                 playlist</button></td>
-                        <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
+                        <td class="align-middle"> <audio #audioPlayer [src]="item.url" controls
+                                (ended)="onAudioEnded()"></audio>
                         </td>
-                        <td><button (click)="ajoutMorceauLike1(item.id)" class="far fa-thumbs-up">{{
+                        <td class="align-middle"><button (click)="ajoutMorceauLike1(item.id)"
+                                class="far fa-thumbs-up">{{
                                 item.like1 }}</button></td>
                     </tr>
                 </tbody>
