@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Stomp } from '@stomp/stompjs';
-import * as SockJS from 'sockjs-client';
+import { UtilityService } from '../utility.service';
+
 
 
 @Component({
@@ -9,45 +10,31 @@ import * as SockJS from 'sockjs-client';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
+  chat: any;
+  conv1: any;
+  conv2: any;
 
 
-
-  constructor() { }
+  constructor(public service: UtilityService, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('http://localhost:8289/messages/user/' + this.service.getId()).subscribe({
+      next: (data) => { this.chat = data; console.log(this.chat) },
+      error: (err) => { console.log(err) }
+    });
+    this.http.get('http://localhost:8289/messages/user/' + this.service.getId() + '/2').subscribe({
+      next: (data) => { this.conv1 = data; console.log(this.conv1) },
+      error: (err) => { console.log(err) }
+    });
 
+    this.http.get('http://localhost:8289/messages/user/2' + this.service.getId()).subscribe({
+      next: (data) => { this.conv2 = data; console.log(this.conv2) },
+      error: (err) => { console.log(err) }
+    });
   }
 
 
 
 
-
-
-
-  /*
-  constructor(private http: HttpClient, private route: Router) { }
-
-  sendMessage(value: any) {
-    console.log(value)
-    this.http.put('http://localhost:8289/message', value).subscribe({
-      next: (data) => {
-        this.msg = data;
-        console.log(data)
-        if (this.msg != null) {
-          // comande pour afficher le message dans la boitet
-        }
-        else {
-
-
-        }
-   
-      })
-    } */
-
-  /* sendMessage(value: any) {
-  
-  
-    return (this.user.contenu);
-  } */
 
 } 
