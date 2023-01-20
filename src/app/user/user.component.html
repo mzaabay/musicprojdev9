@@ -1,7 +1,29 @@
-<br>
 <div class="container-xl flex-grow-1 container-p-y">
 
 
+    <div class="container">
+        <h1>Profil utilisateur</h1>
+        <p>Bienvenue, {{ user.nom }}</p>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Mes événements</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">event name</h5>
+                                <p class="card-text">event date</p>
+                                <a href="#" class="btn btn-primary">Voir l'événement</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
 
 
     <div class="row">
@@ -79,61 +101,64 @@
 
 
                 <div *ngIf="!editmode" class="card-body">
-                    <form #fUpdate="ngForm" (ngSubmit)="update(fUpdate.value)" id="formAccountSettings">
+                    <form #form="ngForm" (ngSubmit)="update(form.value)" id="formAccountSettings">
                         <div class="row">
 
                             <div class="mb-3 col-md-6">
                                 <label for="Login" class="form-label">Login</label>
-                                <input ngModel="" type="text" class="form-control" id="login" name="login"
-                                    placeholder="*Obligatoire">
+                                <input type="text" class="form-control" id="login" name="login" value="*Obligatoire"
+                                    [(ngModel)]="user.login" required>
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <label for="password" class="form-label">Mot de passe</label>
                                 <input ngModel="" type="text" class="form-control" id="password" name="password"
-                                    placeholder="*Obligatoire" maxlength="6">
+                                    [(ngModel)]="user.password" maxlength="6" value="*Obligatoire">
                             </div>
 
 
                             <div class="mb-3 col-md-6">
                                 <label for="firstName" class="form-label">Prénom</label>
                                 <input ngModel="" class="form-control" type="text" id="firstName" name="prenom"
-                                    placeholder="*Obligatoire" autofocus="">
+                                    [(ngModel)]="user.prenom" required value="*Obligatoire">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="lastName" class="form-label">Nom</label>
                                 <input required ngModel="" class="form-control" type="text" name="nom" id="lastName"
-                                    placeholder="*Obligatoire">
+                                    [(ngModel)]="user.nom" required value="*Obligatoire">
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="email" class="form-label">E-mail</label>
                                 <input ngModel="" class="form-control" type="text" id="email" name="mail" value=""
-                                    placeholder="*Obligatoire">
+                                    [(ngModel)]="user.mail" required value="*Obligatoire">
                             </div>
 
 
                             <div class="mb-3 col-md-6">
                                 <label for="address" class="form-label">Adresse</label>
                                 <input ngModel="" type="text" class="form-control" id="adresse" name="adresse"
-                                    placeholder="*Obligatoire">
+                                    [(ngModel)]="user.adresse" required value="*Obligatoire">
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <label for="zipCode" class="form-label">Code Postale</label>
                                 <input ngModel="" type="text" class="form-control" id="zipCode" name="code_Postale"
-                                    placeholder="*Obligatoire" maxlength="6">
+                                    [(ngModel)]="user.code_Postale" required maxlength="6" value="*Obligatoire">
                             </div>
 
-                            <br>
-                            <br>
+                                <!-- <br>
+                                <br> -->
                             <p class="text-danger text-center"> {{ message }} </p>
 
 
                         </div>
                         <div class="mt-2">
-                            <button (click)="toggleDiv()" type="submit"
-                                class="btn btn-primary me-2">Sauvegarder</button>
+                            <button (click)="toggleDiv()" type="submit" class="btn btn-primary me-2"
+                                [disabled]="!form.valid">Sauvegarder</button>
                             <button type="reset" class="btn btn-outline-secondary">Annuler</button>
+                            <div *ngIf="!form.valid" class="alert alert-danger">
+                                Tout les champs sont obligaoires!
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -144,7 +169,7 @@
         <div *ngIf="!editmode" class="card">
             <h5 class="card-header">Supprimer le compte</h5>
             <div class="card-body">
-                <div class="mb-3 col-12 mb-0">
+                <div class="mb-3 col-12 mb-5">
                     <div class="alert alert-warning">
                         <h6 class="alert-heading fw-bold mb-1">Êtes-vous sûr de vouloir supprimer votre compte ?
                         </h6>
@@ -160,6 +185,7 @@
                     <button type="submit" class="btn btn-danger deactivate-account">Supprimer mon compte</button>
                 </form>
                 <br>
+
             </div>
             <br>
         </div>

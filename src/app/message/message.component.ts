@@ -1,7 +1,4 @@
-import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Stomp } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 
@@ -13,11 +10,6 @@ import * as SockJS from 'sockjs-client';
 })
 export class MessageComponent implements OnInit {
 
-  title = 'WebSocketChatRoom';
-  greetings: string[] = [];
-  disabled = true;
-  newmessage: string | undefined;
-  private stompUser = null as any;
 
 
   constructor() { }
@@ -48,11 +40,9 @@ export class MessageComponent implements OnInit {
 
 
         }
-
-      }
-
-    })
-  } */
+   
+      })
+    } */
 
   /* sendMessage(value: any) {
   
@@ -60,4 +50,4 @@ export class MessageComponent implements OnInit {
     return (this.user.contenu);
   } */
 
-}
+} 

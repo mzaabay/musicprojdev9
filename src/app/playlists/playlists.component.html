@@ -28,8 +28,6 @@
                             <td><button (click)="supprimeMorceau(item.id)" type="button"
                                     class="btn btn-secondary btn-sm">Delete</button></td>
                             <td> <audio #audioPlayer [src]="item.morceau.url" controls (ended)="onAudioEnded()"></audio>
-                                <button (click)="playAudio()">Play</button>
-                                <button (click)="pauseAudio()">Pause</button>
                             </td>
                         </tr>
                     </tbody>
@@ -47,10 +45,11 @@
                         <th>Genre</th>
                         <th>Add</th>
                         <th>Lecteur pas trop cassé</th>
+                        <th>Like</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let item of morceau">
-                    <tr>
+                <tbody>
+                    <tr *ngFor="let item of morceau">
                         <td>{{ item.album }}</td>
                         <td>{{ item.nom }}</td>
                         <td>{{ item.auteur }}</td>
@@ -58,10 +57,12 @@
                         <td><button (click)="ajoutMorceau(item.id)" class="btn btn-dark btn-sm ">Add
                                 playlist</button></td>
                         <td> <audio #audioPlayer [src]="item.url" controls (ended)="onAudioEnded()"></audio>
-                            <button (click)="playAudio()">Play</button>
-                            <button (click)="pauseAudio()">Pause</button>
                         </td>
+                        <td><i class="fa-light fa-thumbs-up"></i></td>
+
+                    
                     </tr>
+          
                 </tbody>
             </table>
         </div>
