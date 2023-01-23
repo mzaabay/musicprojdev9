@@ -7,33 +7,36 @@
                 <tr>
                     <th></th>
                     <th>Article</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
+                    <th class="text-center">Prix</th>
+                    <th class="text-center">Quantité</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of panier">
                 <tr *ngIf="item.user.id == this.service.getId()">
                     <img src="{{ item.produits.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
-                        style="width: 100px; height: 67px;" />
-                    <td>{{ item.produits.designation }}</td>
-                    <td>{{ item.produits.prix }} €</td>
-                    <td>{{ item.quantite }} </td>
+                        style="width: 112px; height: 76px;" />
+                    <td class="align-middle">{{ item.produits.designation }}</td>
+                    <td class="align-middle text-center">{{ item.produits.prix }} €</td>
+                    <td class="align-middle text-center">{{ item.quantite }} </td>
 
-                    <td><select #quantity id="quantity" name="quantity">
+                    <td class="align-middle"><select #quantity id="quantity" name="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                        </select></td>
+                        </select>
 
-                    <td><button class="btn btn-outline-info btn-sm"
+                        <button class="btn btn-dark btn-sm"
                             (click)="modifQuantiteProduit(item.produits.id, quantity.value)" data-toggle="modal"
                             data-target="#pop-up">Modifier la quantite</button>
                     </td>
 
-                    <td><button class="btn btn-outline-danger btn-sm" (click)="suppressionProduitDuPanier(item.id)"
-                            data-toggle="modal" data-target="#pop-up">Supprimer</button>
+                    <td class="align-middle"><button class="btn btn-dark btn-sm"
+                            (click)="suppressionProduitDuPanier(item.id)" data-toggle="modal"
+                            data-target="#pop-up">Supprimer</button>
                     </td>
 
 
@@ -41,7 +44,8 @@
 
             </tbody>
         </table>
-        <p class="font-weight-bold">Sous-total boutique : <span class="subtotal"></span> {{ coutPanier() }} €</p>
+        <p class="font-weight-bold text-right">Sous-total boutique : <span class="subtotal"></span> {{ coutPanier() }} €
+        </p>
 
 
 
@@ -58,51 +62,53 @@
                     <th></th>
                     <th>Évènement</th>
                     <th>Date</th>
-                    <th>Prix</th>
-                    <th>Quantité/th>
+                    <th class="align-middle text-center">Prix</th>
+                    <th class="align-middle text-center">Quantité
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody *ngFor="let i of billeterie">
                 <tr *ngIf="i.user.id == this.service.getId()">
                     <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap"
-                        style="width: 100px; height: 67px;">
-                    <td>{{ i.evenement.nom }}</td>
-                    <td>{{ i.evenement.date }}</td>
-                    <td>{{ i.evenement.prix }} €</td>
-                    <td>{{ i.quantite }} </td>
+                        style="width: 112px; height: 76px;">
+                    <td class="align-middle">{{ i.evenement.nom }}</td>
+                    <td class="align-middle">{{ i.evenement.date }}</td>
+                    <td class="align-middle text-center">{{ i.evenement.prix }} €</td>
+                    <td class="align-middle text-center">{{ i.quantite }} </td>
 
-                    <td><select #quantity id="quantity" name="quantity">
+                    <td class="align-middle"><select #quantity id="quantity" name="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                        </select></td>
+                        </select>
 
-                    <td><button class="btn btn-outline-info btn-sm"
+                        <button class="btn btn-dark btn-sm"
                             (click)="modifQuantiteEvenement(i.evenement.id, quantity.value)" data-toggle="modal"
                             data-target="#pop-up">Modifier la quantite</button>
                     </td>
 
-                    <td><button (click)="suppressionEvenementDuPanier(i.id)" data-toggle="modal"
-                            data-target="#pop-up">Supprimer du
-                            panier</button>
+                    <td class="align-middle"><button class="btn btn-dark btn-sm"
+                            (click)="suppressionEvenementDuPanier(i.id)" data-toggle="modal"
+                            data-target="#pop-up">Supprimer</button>
                     </td>
 
                 </tr>
             </tbody>
         </table>
-        <p class="font-weight-bold">Sous-total évènements : <span class="subtotal"></span> {{ coutEvenement() }} €</p>
+        <p class="font-weight-bold text-right">Sous-total évènements : <span class="subtotal"></span> {{ coutEvenement()
+            }} €</p>
         <br>
 
 
-
+        <h1>Prix total : {{
+            coutEvenement()+coutPanier() }} €</h1>
 
         <!-- Bouton Collapse pour passer la commande-->
-        <h4 class="font-weight-bold">Prix total de la commande : <span class="subtotal"></span> {{
-            coutEvenement()+coutPanier() }} €</h4>
         <div class="container">
-            <button type="button" class="btn btn-outline-success" data-toggle="collapse"
+            <button type="button" class="btn btn-dark" data-toggle="collapse"
                 data-target="#evenement">Commander</button>
             <div id="evenement" class="collapse">
                 <form #fCommande="ngForm" (ngSubmit)="creationCommande('', '', '')">
@@ -126,11 +132,13 @@
                         </select>
                     </div>
 
-                    <button data-toggle="modal" data-target="#pop-up" type="submit">Valider la commande</button>
+                    <button class="btn btn-dark" data-toggle="modal" data-target="#pop-up" type="submit">Valider la
+                        commande</button>
                 </form>
 
             </div>
         </div>
+
     </div>
     <br>
 
@@ -151,7 +159,7 @@
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

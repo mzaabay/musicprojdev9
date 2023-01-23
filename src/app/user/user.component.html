@@ -4,21 +4,26 @@
     <div class="container">
         <h1>Profil utilisateur</h1>
         <p>Bienvenue, {{ user.nom }}</p>
-        <div class="row">
+        <div class="row" *ngFor="let i of billeterie">
             <div class="col-md-12">
                 <h2>Mes événements</h2>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top">
+                            <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">event name</h5>
-                                <p class="card-text">event date</p>
-                                <a href="#" class="btn btn-primary">Voir l'événement</a>
+                                <h5 class="card-title">{{i.evenement.nom}}</h5>
+                                <p class="card-text">{{ i.evenement.date }}</p>
+                                <p class="card-text">{{ i.evenement.resume }}</p>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <p></p>
+                <a routerLink="/evenements" class="btn btn-dark btn-sm">
+                    Voir les événements
+                </a>
             </div>
         </div>
     </div>
@@ -37,7 +42,7 @@
                         <img [src]="mediaUrl" *ngIf="mediaUrl" name="avatar" class="d-block rounded" height="100"
                             width="100" id="uploadedAvatar">
                         <div class="button-wrapper">
-                            <label for="upload" class="btn btn-primary me-1 mb-2" tabindex="0">
+                            <label for="upload" class="btn btn btn-dark btn-sm me-1 mb-2" tabindex="0">
                                 <span class="d-none d-sm-block">Téléchargez une image</span>
                                 <i class="bx bx-upload d-block d-sm-none"></i>
                                 <input type="file" id="upload" class="account-file-input" hidden=""
@@ -45,7 +50,7 @@
                             </label>
 
 
-                            <p class="text-muted mb-0">JPG, GIF ou PNG autorisés. Taille maximale de 800K</p>
+                            <p class="text-muted mb-0">JPG, GIF ou PNG autorisés.</p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +88,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Code Postale</h6>
+                            <h6 class="mb-0">Code Postal</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{ service.getcode_postale() }}
@@ -94,7 +99,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-12">
-                            <button (click)="toggleDiv()" class="btn btn-info " target="__blank">Edit</button>
+                            <button (click)="toggleDiv()" class="btn btn-dark btn-sm" target="__blank">Modifier</button>
                         </div>
                     </div>
                 </div>
@@ -146,18 +151,18 @@
                                     [(ngModel)]="user.code_Postale" required maxlength="6" value="*Obligatoire">
                             </div>
 
-                                <!-- <br>
+                            <!-- <br>
                                 <br> -->
                             <p class="text-danger text-center"> {{ message }} </p>
 
 
                         </div>
                         <div class="mt-2">
-                            <button (click)="toggleDiv()" type="submit" class="btn btn-primary me-2"
+                            <button (click)="toggleDiv()" type="submit" class="btn btn btn-dark btn-sm me-2"
                                 [disabled]="!form.valid">Sauvegarder</button>
                             <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                             <div *ngIf="!form.valid" class="alert alert-danger">
-                                Tout les champs sont obligaoires!
+                                Tout les champs sont obligatoires!
                             </div>
                         </div>
                     </form>
@@ -184,7 +189,7 @@
                     </div>
                     <button type="submit" class="btn btn-danger deactivate-account">Supprimer mon compte</button>
                 </form>
-                <br>
+                <p></p>
 
             </div>
             <br>

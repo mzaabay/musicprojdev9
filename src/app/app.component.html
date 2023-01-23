@@ -2,9 +2,20 @@
 <HEader>
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #b6946d33;">
     <div class="container-fluid justify-content-between">
+
+
+
       <!-- Left elements -->
       <div class="d-flex">
-        <div id="bars justify-content-between">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="">
+          <!--TODO REVOIR LE LOGO ET LE LIEN VERS HOME-->
+          <img src="./assets/images/logo-reduit-removebg-preview.png" height="50" alt="" loading="lazy"
+            style="margin-top: 2px;" />
+          <img src="./assets/images/slogan-removebg-preview.png" height="20" alt="" loading="lazy"
+            style="margin-top: 2px;" />
+        </a>
+        <div id="bars">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
@@ -16,18 +27,10 @@
           <div class="bar"></div>
           <div class="bar"></div>
         </div>
-        <!-- Brand -->
-        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="">
-          <!--TODO REVOIR LE LOGO ET LE LIEN VERS HOME-->
-          <img src="./assets/images/logo-reduit-removebg-preview.png" height="50" alt="" loading="lazy"
-            style="margin-top: 2px;" />
-          <img src="./assets/images/slogan-removebg-preview.png" height="20" alt="" loading="lazy"
-            style="margin-top: 2px;" />
-
-        </a>
-
-
       </div>
+
+
+
 
 
 
@@ -77,9 +80,8 @@
         <div class="d-flex" *ngIf="service.isConnected()">
           <li class="nav-item me-3 me-lg-1">
             <a class="nav-link d-sm-flex align-items-sm-center" routerLink="user">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="30"
-                alt="" loading="lazy" />
-              <strong class="d-none d-sm-block ms-1">{{ service.getLogin() }}</strong>
+              <img [src]="mediaUrl" *ngIf="mediaUrl" class="rounded-circle" height="30" alt="" loading="lazy" />
+              <strong class="d-none d-sm-block ms-1"> {{ service.getLogin() }}</strong>
             </a>
           </li>
 
@@ -87,7 +89,7 @@
             <!-- <a class="nav-link" routerLink="login/panier">
               <span><i class="fas fa-shopping-cart fa-lg"></i></span>
             </a> -->
-            <a routerLink="login/panier" class="btn btn-primary btn-sm" aria-label="View 3 items in your shopping cart">
+            <a routerLink="login/panier" class="btn btn-dark btn-sm" aria-label="View 3 items in your shopping cart">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </a>
           </li>
@@ -98,7 +100,7 @@
             </a>
           </li> -->
           <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-            <a class="btn btn-primary btn-sm" routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
+            <a class="btn btn-dark btn-sm" routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
               mdbDropdownToggle aria-expanded="false" height="45">
               <i class="fas fa-comments fa-lg"></i>
 
@@ -141,7 +143,7 @@
         -->
 
           <li class="nav-item">
-            <a (click)="service.deco()" class="btn btn-outline-danger btn-sm"><i class="fas fa-power-off "></i></a>
+            <a (click)="service.deco()" class="btn btn-outline-dark btn-sm"><i class="fas fa-power-off "></i></a>
           </li>
         </div>
 

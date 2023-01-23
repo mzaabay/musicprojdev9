@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   mediaUrl: any;
   user: any;
   editmode = true;
+  billeterie: any;
 
   constructor(public service: UtilityService, private http: HttpClient, private route: Router) { }
 
@@ -28,9 +29,9 @@ export class UserComponent implements OnInit {
     this.http.get("http://localhost:8289/user/" + this.service.getId()).subscribe({
       next: (data) => {
         this.user = data;
-        console.log(this.user.id)
-        if (this.user.id = null) {
-          this.mediaUrl = this.user.avatar;
+
+        if (this.user.avatar != null) {
+          this.mediaUrl = window.atob(this.user.avatar);
         }
         else {
           this.mediaUrl = "/assets/images/avatar.png"
@@ -38,6 +39,11 @@ export class UserComponent implements OnInit {
         }
       }
     })
+
+    this.http.get('http://localhost:8289/billeterie/user/' + this.service.getId()).subscribe({
+      next: (data) => { this.billeterie = data },
+      error: (err) => { console.log(err) }
+    });
 
   }
 
@@ -81,6 +87,7 @@ export class UserComponent implements OnInit {
           // console.log(this.user.avatar);
         }
       })
+
 
     }
 
