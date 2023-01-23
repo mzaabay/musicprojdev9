@@ -9,7 +9,7 @@ import { UtilityService } from './utility.service';
 })
 export class AppComponent implements OnInit {
 
-
+  title: any;
   constructor(private route: Router, public service: UtilityService) { }
 
   ngOnInit(): void {
