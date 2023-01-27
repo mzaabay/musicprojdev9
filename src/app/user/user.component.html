@@ -4,27 +4,31 @@
     <div class="container">
         <h1>Profil utilisateur</h1>
         <p>Bienvenue, {{ user.nom }}</p>
-        <div class="row" *ngFor="let i of billeterie">
+        <div class="row">
             <div class="col-md-12">
                 <h2>Mes événements</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{i.evenement.nom}}</h5>
-                                <p class="card-text">{{ i.evenement.date }}</p>
-                                <p class="card-text">{{ i.evenement.resume }}</p>
+            </div>
+            <div class="row" *ngFor="let i of billeterie">
+                <div class="col-md-12">
+                    <div class="card">
+                        <img class="card-img-top" src="{{i.evenement.image_mini}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.evenement.nom}}</h5>
+                            <p class="card-text">{{ i.evenement.date }}</p>
+                            <p class="card-text">{{ i.evenement.resume }}</p>
 
-                            </div>
                         </div>
                     </div>
                 </div>
-                <p></p>
-                <a routerLink="/evenements" class="btn btn-dark btn-sm">
-                    Voir les événements
-                </a>
             </div>
+            <p></p>
+
+
+        </div>
+        <div>
+            <a routerLink="/evenements" class="btn btn-dark btn-sm">
+                Voir les événements
+            </a>
         </div>
     </div>
     <br>
