@@ -27,7 +27,7 @@ export class MessageComponent implements OnInit {
       error: (err) => { console.log(err) }
     });
 
-    this.http.get('http://localhost:8289/messages/user/2' + this.service.getId()).subscribe({
+    this.http.get('http://localhost:8289/messages/user/2/' + this.service.getId()).subscribe({
       next: (data) => { this.conv2 = data; console.log(this.conv2) },
       error: (err) => { console.log(err) }
     });
