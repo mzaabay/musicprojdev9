@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   avatar: any;
   user: any;
   mediaUrl: any;
+  darkMode!: boolean;
 
   constructor(private route: Router, public service: UtilityService, private http: HttpClient) { }
 
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
 
   // pour la barre de recherche -->
   searchText: any;
+  
 
 }
 

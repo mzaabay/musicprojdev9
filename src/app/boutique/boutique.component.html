@@ -1,8 +1,10 @@
+
+
+<div style="background-color: {{service.backgroundColor}};">
 <!-- message page boutique -->
-<h2 class="text-center m-5">
-    <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
-    <small class="text-muted">Tout pour vous équiper.</small>
-</h2>
+<div class="text-center">
+    <img src="./assets/images/logo-removebg-preview.png" height="120" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
+</div>
 
 <!-- card des produits-->
 <div class="container">
@@ -19,7 +21,7 @@
 
     <!-- fin Barre de recherche -->
 
-    <h2 class="text-center m-5"></h2>
+    <br>
 
 
     <div class="row">
@@ -29,18 +31,18 @@
             <div class="card card-cascade narrower">
                 <img src="{{ m.imageurl}}" class="card-img-top" alt="Hollywood Sign on The Hill"
                     style="width: 255px; height: 255px;" />
-                <div class="card-body mb-2">
-                    <p class="card-text text-center font-weight-bold">{{ m.designation}}</p>
-                    <p class="card-text text-center">
+                <div class="card-body text-{{service.oppositeDarkValue}} bg-{{service.darkvalue}}">
+                    <p class="card-text text-center font-weight-bold text-{{service.oppositeDarkValue}}">{{ m.designation}}</p>
+                    <p class="card-text text-center text-{{service.oppositeDarkValue}}">
                         Catégorie : {{ m.categorie}}
                     </p>
-                    <p class="card-text text-center">
+                    <p class="card-text text-center text-{{service.oppositeDarkValue}}">
                         Prix : {{ m.prix}} €
                     </p>
                     <div>
 
                     </div>
-                    <div class="card-text text-center">
+                    <div class="card-text text-center text-{{service.oppositeDarkValue}}">
                         <label for="quantity">Quantité : </label>
                         <select #quantity id="quantity" name="quantity">
                             <option value="1">1</option>
@@ -50,7 +52,7 @@
                             <option value="5">5</option>
                         </select>
 
-                        <button (click)="ajoutProduitAuPanier(m.id, quantity.value)" class="btn btn-dark btn-sm"
+                        <button (click)="ajoutProduitAuPanier(m.id, quantity.value)" class="btn btn-{{service.oppositeDarkValue}} btn-sm"
                             data-toggle="modal" data-target="#pop-up">Ajouter au
                             panier</button>
 
@@ -61,17 +63,15 @@
                 </div>
 
             </div>
-            <p> </p>
+           <br>
         </div>
-        <p></p>
+       
 
 
     </div>
 </div>
 
-<h2 class="text-center m-5">
 
-</h2>
 
 <!-- Pop-up quand on ajoute au panier -->
 <div class="modal fade" id="pop-up" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -84,9 +84,13 @@
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="service.goToPanier()">Aller
+                <button type="button" class="btn btn-{{service.oppositeDarkValue}}" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-{{service.oppositeDarkValue}}" data-dismiss="modal" (click)="service.goToPanier()">Aller
                     vers le panier</button>
             </div>
         </div>
     </div>
+
+
+
+</div>

@@ -1,4 +1,4 @@
-<div>
+<div style="background-color: {{service.backgroundColor}};">
     <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
         <!--Indicators-->
         <ol class="carousel-indicators">
@@ -29,7 +29,7 @@
             </div>
 
 
-            <div class="carousel-item" *ngFor="let m of events.slice(1); let i = index">
+            <div class="carousel-item background-color" *ngFor="let m of events.slice(1); let i = index">
                 <div *ngIf="i<2">
                     <div class="view">
                         <img class="d-block w-100" src="{{m.image_carousel}}" alt="First slide">
@@ -80,18 +80,18 @@
                     </div>
 
                     <!-- Card content -->
-                    <div class="card-body">
+                    <div class="card-body text-{{service.oppositeDarkValue}} bg-{{service.darkvalue}}">
 
                         <!-- Label -->
                         <h5 class="pink-text pb-2 pt-1"><i class="fas fa-calendar"></i> {{m.date}}</h5>
                         <!-- Title -->
                         <h4 class="font-weight-bold card-title">
                             <!-- <a class="text-dark" routerLink="/evenements/page"></a>-->
-                            <a class="text-dark">{{m.nom}}</a>
+                            <a class="text-{{service.oppositeDarkValue}}">{{m.nom}}</a>
                         </h4>
                         <h6 class="font-weight-bold card-title">{{m.horaire}}</h6>
                         <!-- Text -->
-                        <p class="card-text">{{m.resume}}</p>
+                        <p class="card-text text-{{service.oppositeDarkValue}}">{{m.resume}}</p>
                         <!-- Button -->
                         <h6 class="font-weight-bold card-title">Prix : {{m.prix}}€ TTC</h6>
                         <div class="text-center">
@@ -108,9 +108,9 @@
                         </div>
                         <div class="text-center">
                             <button (click)="ajoutEvenementABilleterie(m.id, quantity.value)"
-                                class="btn btn-dark btn-sm" data-toggle="modal" data-target="#pop-up">Ajouter au
+                                class="btn btn-{{service.oppositeDarkValue}} btn-sm" data-toggle="modal" data-target="#pop-up">Ajouter au
                                 panier</button>
-                            <button (click)="clickedIndex = i" class="btn btn-dark btn-sm" data-toggle="modal"
+                            <button (click)="clickedIndex = i" class="btn btn-{{service.oppositeDarkValue}} btn-sm" data-toggle="modal"
                                 data-target="#eventpop">Plus
                                 d'infos...</button>
                             <div *ngIf="clickedIndex === i" class="modal fade" id="eventpop" tabindex="-1" role="dialog"
@@ -149,7 +149,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
+                                            <h5 class="modal-title text-dark" id="exampleModalLabel">{{msg}}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -187,7 +187,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{msg}}</h5>
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">{{msg}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

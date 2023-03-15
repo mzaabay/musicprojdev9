@@ -15,6 +15,7 @@ body {
     min-width: 300px;
     height: 200px;
     border: 0px solid #000;
+    
 }
 
 .noot-1,
@@ -25,6 +26,7 @@ body {
     animation: notes 2s infinite linear;
     font-size: 35px;
     opacity: 0;
+    
 }
 
 .noot-1 {

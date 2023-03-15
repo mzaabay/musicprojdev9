@@ -1,14 +1,16 @@
-<body>
-    <div class="text-center">
-        <br><br>
-        <img src="./assets/images/logo_slogan.PNG" height="190" alt="" loading="lazy" style="margin-top: 2px;" /> <br>
-        <div class="container-fluid">
-            <br>
+<body style="background-color: {{service.backgroundColor}};">
+    <div class="text-center text-{{service.oppositeDarkValue}} " >
+        <div class="text-center">
+            <img src="./assets/images/logo-removebg-preview.png" height="120" alt="" loading="lazy" style="margin-top: 2px;" />
+        </div>
+        
+        <div class="container-fluid text-{{service.oppositeDarkValue}}">
+          
             <h1>Playlist</h1>
             <div class="table">
                 <table>
                     <thead>
-                        <tr>
+                        <tr class= "text-{{service.oppositeDarkValue}}">
                             <th>Album</th>
                             <th>Nom</th>
                             <th>Auteur</th>
@@ -18,13 +20,13 @@
                         </tr>
                     </thead>
                     <tbody *ngFor="let item of playlist">
-                        <tr *ngIf="item.user.id == this.service.getId()">
+                        <tr *ngIf="item.user.id == this.service.getId()" class= "text-{{service.oppositeDarkValue}}">
                             <td class="align-middle">{{ item.morceau.album }}</td>
                             <td class="align-middle">{{ item.morceau.nom }}</td>
                             <td class="align-middle">{{ item.morceau.auteur }}</td>
                             <td class="align-middle">{{ item.morceau.genre }}</td>
                             <td class="align-middle"><button (click)="supprimeMorceau(item.id)" type="button"
-                                    class="btn btn-dark btn-sm">Supprimer</button></td>
+                                    class="btn btn-{{service.oppositeDarkValue}} btn-sm">Supprimer</button></td>
                             <td class="align-middle"> <audio #audioPlayer [src]="item.morceau.url" controls
                                     (ended)="onAudioEnded()"></audio>
                             </td>
@@ -33,11 +35,11 @@
                 </table>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <h1>Morceaux disponibles</h1>
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr class= "text-{{service.oppositeDarkValue}}">
                         <th>Album</th>
                         <th>Nom</th>
                         <th>Auteur</th>
@@ -48,23 +50,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of morceau">
+                    <tr *ngFor="let item of morceau" class= "text-{{service.oppositeDarkValue}}">
                         <td class="align-middle">{{ item.album }}</td>
                         <td class="align-middle">{{ item.nom }}</td>
                         <td class="align-middle">{{ item.auteur }}</td>
                         <td class="align-middle">{{ item.genre }}</td>
                         <td class="align-middle"><button (click)="ajoutMorceau(item.id)"
-                                class="btn btn-dark btn-sm ">Ajouter
+                                class="btn btn-{{service.oppositeDarkValue}} btn-sm ">Ajouter
                             </button></td>
                         <td class="align-middle"> <audio #audioPlayer [src]="item.url" controls
                                 (ended)="onAudioEnded()"></audio>
                         </td>
                         <td class="align-middle"><button (click)="ajoutMorceauLike1(item.id)"
                                 class="far fa-thumbs-up">{{
-                                item.like1 }}</button></td>
+                                item.like1 }}</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <br>
         </div>
     </div>
 </body>
+

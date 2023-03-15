@@ -1,6 +1,8 @@
 <!-- Navbar-->
-<HEader>
-  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #b6946d33;">
+
+
+<Header>
+  <nav class="navbar navbar-expand-lg navbar-{{service.darkvalue}}" style="background-color: {{service.backgroundColor}}">
     <div class="container-fluid justify-content-between">
 
 
@@ -16,16 +18,16 @@
             style="margin-top: 2px;" />
         </a>
         <div id="bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
+          <div class="bar" style="background: {{service.color}}"></div>
         </div>
       </div>
 
@@ -36,7 +38,16 @@
 
       <!-- Center elements / MENU -->
       <ul class="navbar-nav flex-row d-none d-md-flex display-5">
-        <li class="nav-item me-3 me-lg-1 " [ngClass]="{'active': isCurrentPage('home')}">
+
+        <li class="nav-item me-3 me-lg-1 ">
+          <!-- TODO GERER LES ACTIVE ICONS-->
+          <a class="nav-link" (click)="service.setDarkMode()">
+            <i class={{service.icon}}></i>
+          </a>
+        </li>
+
+
+        <li class="nav-item me-3 me-lg-1" [ngClass]="{'active': isCurrentPage('home')}">
           <!-- TODO GERER LES ACTIVE ICONS-->
           <a class="nav-link" routerLink="home">Accueil</a>
         </li>
@@ -70,7 +81,7 @@
 
         <div class="d-flex" *ngIf="!service.isConnected()">
           <li class="nav-item me-3 me-lg-1">
-            <a class="btn btn-link " routerLink="login">
+            <a class="btn btn-link btn-{{service.darkvalue}}" routerLink="login">
               <i class="far fa-user fa-lg"> </i>
             </a>
           </li>
@@ -89,7 +100,7 @@
             <!-- <a class="nav-link" routerLink="login/panier">
               <span><i class="fas fa-shopping-cart fa-lg"></i></span>
             </a> -->
-            <a routerLink="login/panier" class="btn btn-dark btn-sm" aria-label="View 3 items in your shopping cart">
+            <a routerLink="login/panier" class="btn btn-{{service.oppositeDarkValue}} btn-sm" aria-label="View 3 items in your shopping cart">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </a>
           </li>
@@ -100,7 +111,7 @@
             </a>
           </li> -->
           <li mdbDropdown class="nav-item dropdown me-3 me-lg-1">
-            <a class="btn btn-dark btn-sm" routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
+            <a class="btn btn-{{service.oppositeDarkValue}} btn-sm" routerLink="login/messages" id="navbarDropdownMenuLink" role="button"
               mdbDropdownToggle aria-expanded="false" height="45">
               <i class="fas fa-comments fa-lg"></i>
 
@@ -143,20 +154,141 @@
         -->
 
           <li class="nav-item">
-            <a (click)="service.deco()" class="btn btn-outline-dark btn-sm"><i class="fas fa-power-off "></i></a>
+            <a (click)="service.deco()" class="btn btn-outline-{{service.oppositeDarkValue}} btn-sm"><i class="fas fa-power-off "></i></a>
           </li>
         </div>
 
       </ul>
     </div>
   </nav>
-</HEader>
-
-
-
-
-
-
-
 
 <router-outlet></router-outlet>
+</Header>
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="text-center text-white border-top border-{{service.oppositeDarkValue}}">
+  <!-- Grid container -->
+  <div class=" pt-100">
+
+
+    <!-- Section: Links  -->
+    <section class="text-{{service.oppositeDarkValue}}" style="background-color:{{service.backgroundColor}}">
+      <div class="container text-center text-md-start mt-50">
+        <!-- Grid row -->
+        <br><br>
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i> CHORUS
+            </h6>
+            <p>
+              Chorus est la première plateforme de partage de musique et d'organisation d'évènements musicaux en France.
+              Vous trouverez une variété d'équipements dans notre boutique en ligne.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Nos produits
+            </h6>
+            <p>
+              <a href="boutique" class="text-reset">Disques</a>
+            </p>
+            <p>
+              <a href="boutique" class="text-reset">Équipements audio</a>
+            </p>
+            <p>
+              <a href="boutique" class="text-reset">Produits dérivés</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              plan du site
+            </h6>
+            <p>
+              <a href="home" class="text-reset">Accueil</a>
+            </p>
+            <p>
+              <a href="evenements" class="text-reset">Évènements</a>
+            </p>
+            <p>
+              <a class="text-reset" href="playlists">Playlist</a>
+            </p>
+            <p>
+              <a class="text-reset" href="boutique">Boutique</a>
+            </p>
+            <p>
+              <a class="text-reset" href="login">Connexion</a>
+            </p>
+            <p>
+              <a class="text-reset" href="login/panier">Panier</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4"> Contact</h6>
+            <p><i class="fas fa-home me-3"></i> Paris, France</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i> chorus@contact.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 44 56 78 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 88 45 69 23</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+    <!-- Section: Social media -->
+    <section class="mb-0" style="background-color: {{service.backgroundColor}};">
+      <!-- Facebook -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-0" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+        role="button" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f text-{{service.oppositeDarkValue}}"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-0" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+        role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter text-{{service.oppositeDarkValue}}"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-0" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+        role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram text-{{service.oppositeDarkValue}}"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-link btn-floating btn-lg text-dark m-0" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU"
+        role="button" data-mdb-ripple-color="dark"><i class="fab fa-linkedin text-{{service.oppositeDarkValue}}"></i></a>
+
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-white p-3" style="background-color: rgb(12, 12, 12);">
+    © 2023 Copyright
+    <a class="text-white" href="#!">Chorus.fr</a>
+  </div>
+  <!-- Copyright -->
+</footer>

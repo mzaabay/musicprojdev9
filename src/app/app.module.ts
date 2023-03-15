@@ -19,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
 import { ProfilComponent } from './profil/profil.component';
 import { MdpComponent } from './mdp/mdp.component';
 import { PageEvenementsComponent } from './page-evenements/page-evenements.component';
-
+import { ColorPickerModule } from 'ngx-color-picker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ColorPickerModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -50,6 +52,7 @@ import { PageEvenementsComponent } from './page-evenements/page-evenements.compo
     ])
     ,
     Ng2SearchPipeModule,
+    BrowserAnimationsModule,
 
 
   ],

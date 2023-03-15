@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { MdpComponent } from './mdp/mdp.component';
 import { PageEvenementsComponent } from './page-evenements/page-evenements.component';
 
+
 const routes: Routes = [
   { component: ConnexionComponent, path: 'login' },
   { component: EvenementsComponent, path: 'evenements' },

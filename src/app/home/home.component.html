@@ -12,20 +12,19 @@
             <img src="./assets/images/logo-removebg-preview.png" height="180" alt="" loading="lazy"
                 style="margin-bottom: 40px;" />
             <div class="muzieknootjes">
-                <div class="noot-1">
+                <div class="noot-1" style="color:{{service.color}}">
                     &#9835; &#9833;
                 </div>
-                <div class="noot-2">
+                <div class="noot-2" style="color:{{service.color}}">
                     &#9833;
                 </div>
-
                 <h5 class="mb-4">Avec CHORUS, partagez <br>et vivez la musique.</h5>
 
 
-                <div class="noot-3">
+                <div class="noot-3" style="color:{{service.color}}">
                     &#9839; &#9834;
                 </div>
-                <div class="noot-4">
+                <div class="noot-4" style="color:{{service.color}}">
                     &#9834;
                 </div>
 
@@ -46,16 +45,20 @@
                         <a routerLink="/evenements" class="btn btn-lg m-2 button_chorus_vert shadow-sm mx-2 px-lg-8">
                             Évènements
                         </a>
-                        <a routerLink="/playlists" class="btn btn-lg text-dark m-2 button_chorus_vclair px-lg-8">
+                        <a routerLink="/playlists" class="btn btn-lg m-2 button_chorus_vclair shadow-sm mx-2 px-lg-8">
                             Playlist
                         </a>
-                        <a routerLink="/boutique" class="btn btn-lg text-dark m-2 button_chorus_jaune mx-2 px-lg-8">
+                        <a routerLink="/boutique" class="btn btn-lg m-2 button_chorus_jaune shadow-sm mx-2 px-lg-8">
                             Boutique
                         </a>
                     </div>
 
                 </div>
-
+                <br>
+                <br>
+                <h5 class="mb-4">De quelle couleur est votre musique aujourd'hui ?</h5>
+                <input [(colorPicker)]="service.color" [style.background]="service.color"/>
+                
 
 
             </div>
